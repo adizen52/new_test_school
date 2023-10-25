@@ -1,0 +1,5 @@
+package screens
+
+object MainScreen {
+
+}
