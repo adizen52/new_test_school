@@ -3,17 +3,19 @@ package screens
 object MainScreen {
 
     val selectBasket = ScreenConstructor(
-        androidAccessId = "2 Корзина 461 ₽",
+        androidAccessId = "2\n" +
+                "Корзина\n" +
+                "461 ₽",
         elementName = "Корзина с двумя дабвленными блюдами"
     )
 
     val dishPuree = ScreenConstructor(
-        androidAccessId = "111 ₽]",
+        androidAccessId = "111 ₽",
         elementName = "Добавление блюда ПЮРЕ"
     )
 
     val chickenRice = ScreenConstructor(
-        androidAccessId = "350 ₽",
+        androidAccessId = "350 ₽",
         elementName = "Добавление блюда Риу - Кура терьяки"
     )
 

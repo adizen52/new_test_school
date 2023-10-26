@@ -50,7 +50,8 @@ object BasketScreen {
     )
 
     val orderMeal = ScreenConstructor(
-        androidAccessId = "Заказ на сумму 461 ₽",
+        androidAccessId = "Заказ на сумму\n" +
+                "461 ₽",
         elementName = "Кнопка для совершения заказа"
     )
 
