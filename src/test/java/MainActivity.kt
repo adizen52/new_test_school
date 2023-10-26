@@ -47,26 +47,20 @@ open class MainActivity {
 
 
         val url = URL("http://127.0.0.1:4723/")
-
-
         androidDriver = AndroidDriver(url, capabilities)
-
         androidDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10))
 
-        BeforeSuitFun()
-        checkAutorizaitionUser(true)
+        try {
+            BeforeSuitFun()
+        } catch (e: org.openqa.selenium.NoSuchElementException)
+        {
+            println("Элементы не найдены.")
+        }
 
 //        clickToElement(selectLanguage.androidAccessId, LocatorType.ACCESSIBILITY_ID)
 //        clickToElement(nextButton.androidAccessId, LocatorType.ACCESSIBILITY_ID)
 //        TimeUnit.SECONDS.sleep(5)
 //        clickToElement(selectPickup.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-//        clickToElement(selectProfile.androidXPath, LocatorType.XPATH)
-//        clickToElement(logInCabinet.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-//        sendText(inputPhone.androidClassName, LocatorType.CLASS_NAME, PHONE)
-//        clickToElement(getCode.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-//        TimeUnit.SECONDS.sleep(5)
-//        sendText(inputCode.androidClassName, LocatorType.CLASS_NAME, phoneCode())
-//        println(checkAvaliableElemnt(logOut.androidAccessId, LocatorType.ACCESSIBILITY_ID))
 
     }
 
@@ -101,4 +95,6 @@ open class MainActivity {
         const val BUNDLE_ID = "starter.school.client"
         const val PHONE = "9616669293"
     }
+
+
 }

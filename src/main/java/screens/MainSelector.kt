@@ -29,4 +29,6 @@ object MainSelector {
                 "android.widget.ImageView[3]",
         elementName = "Выбор окна с информацией"
     )
+
+
 }

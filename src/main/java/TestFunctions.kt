@@ -14,6 +14,7 @@ import screens.Onboarding.selectLanguage
 import screens.ProfileScreen.logInCabinet
 import screens.ProfileScreen.logOut
 import java.time.Duration
+import java.time.Duration.ofMillis
 import java.util.concurrent.TimeUnit
 
 
@@ -56,9 +57,11 @@ object TestFunctions {
         val finger = PointerInput(PointerInput.Kind.TOUCH, "finger")
         val actions = Sequence(finger, 1)
 
-        actions.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), cordX, cordY))
+        actions.addAction(finger.createPointerMove(ofMillis(0), PointerInput.Origin.viewport(), cordX, cordY))
         actions.addAction(finger.createPointerDown(PointerInput.MouseButton.MIDDLE.asArg()))
         actions.addAction(finger.createPointerUp(PointerInput.MouseButton.MIDDLE.asArg()))
+
+        androidDriver.perform(listOf(actions))
     }
 
     fun swipeOnScreen(startCordX: Int, startCordY: Int, moveCordX: Int, moveCordY: Int){
