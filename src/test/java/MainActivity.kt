@@ -57,11 +57,6 @@ open class MainActivity {
             println("Элементы не найдены.")
         }
 
-//        clickToElement(selectLanguage.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-//        clickToElement(nextButton.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-//        TimeUnit.SECONDS.sleep(5)
-//        clickToElement(selectPickup.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-
     }
 
 

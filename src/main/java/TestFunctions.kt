@@ -78,6 +78,29 @@ object TestFunctions {
 
     }
 
+    fun swipeDeleteAddress(element: WebElement) {
+        val locateElement = element.location
+        val sizeElement = element.size
+
+        val startX = sizeElement.width
+        val moveX = locateElement.x
+
+        val startY = locateElement.y + sizeElement.height / 2
+
+        swipeOnScreen(startX, startY, moveX, startY)
+
+    }
+
+    fun tapDeleteAddress(element: WebElement) {
+        val locatorElement = element.location
+        val sizeElement = element.size
+
+        val tapX = locatorElement.x + sizeElement.width - 5
+        val tapY = locatorElement.y + sizeElement.height - 5
+
+        tapByCoordinates(tapX, tapY)
+    }
+
     private fun findElement(locator: String, locatorType: LocatorType) : WebElement {
         return when (locatorType) {
             LocatorType.ID -> androidDriver.findElement(AppiumBy.id(locator))
@@ -85,5 +108,7 @@ object TestFunctions {
             LocatorType.ACCESSIBILITY_ID -> androidDriver.findElement(AppiumBy.accessibilityId(locator))
             LocatorType.CLASS_NAME -> androidDriver.findElement(AppiumBy.className(locator))
         }
+
+
     }
 }
