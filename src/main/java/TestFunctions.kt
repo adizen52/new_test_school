@@ -40,6 +40,12 @@ object TestFunctions {
         return  element.isEnabled
     }
 
+    fun getText(locator: String, locatorType: LocatorType) : String {
+        val element = findElement(locator, locatorType)
+        val textInElement = element.text
+        return textInElement
+    }
+
     fun phoneCode() : String {
         val xmlTextPage = androidDriver.pageSource
         val code = (xmlTextPage.substringAfter("Введите код из смс&#10;")).substringBefore("&#10;")
@@ -97,6 +103,17 @@ object TestFunctions {
 
         val tapX = locatorElement.x + sizeElement.width - 5
         val tapY = locatorElement.y + sizeElement.height - 5
+
+        tapByCoordinates(tapX, tapY)
+    }
+
+    fun tapExitPage(locator : String, locatorType : LocatorType) {
+        val element = findElement(locator, locatorType)
+        val locateElement = element.location
+        val sizeElement = element.size
+
+        val tapX = locateElement.x + sizeElement.width / 2
+        val tapY = locateElement.y + sizeElement.height / 3
 
         tapByCoordinates(tapX, tapY)
     }
