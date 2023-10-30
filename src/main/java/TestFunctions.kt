@@ -9,10 +9,12 @@ import screens.EnterScreens.getCode
 import screens.EnterScreens.inputCode
 import screens.EnterScreens.inputPhone
 import screens.MainSelector.selectProfile
+import screens.MyDataScreens
 import screens.Onboarding.nextButton
 import screens.Onboarding.selectLanguage
 import screens.ProfileScreen.logInCabinet
 import screens.ProfileScreen.logOut
+import screens.ScreenConstructor
 import java.time.Duration
 import java.time.Duration.ofMillis
 import java.util.concurrent.TimeUnit
@@ -118,6 +120,31 @@ object TestFunctions {
         tapByCoordinates(tapX, tapY)
     }
 
+    fun changeUserData(mapUserData: Map<String, String>) {
+        for ((key, value) in mapUserData) {
+            if (key == MyDataScreens.Birthday.androidXPath) {
+                println("No trigger. Birthday.")
+            } else {
+                clickToElement(key, LocatorType.XPATH)
+                clearField(key, LocatorType.XPATH)
+                clickToElement(key, LocatorType.XPATH)
+                sendText(key, LocatorType.XPATH, value)
+            }
+        }
+        clickToElement(MyDataScreens.saveData.androidAccessId, LocatorType.ACCESSIBILITY_ID)
+    }
+
+    fun checkUserData(mapUserData: Map<String, String>) {
+        for ((key, value) in mapUserData) {
+            if (getText(key, LocatorType.XPATH) == value) {
+                println("$value соответствует!")
+            }
+            else {
+                println("$value не соответствует, ОШИБКА!!!")
+            }
+        }
+    }
+
     private fun findElement(locator: String, locatorType: LocatorType) : WebElement {
         return when (locatorType) {
             LocatorType.ID -> androidDriver.findElement(AppiumBy.id(locator))
@@ -125,7 +152,6 @@ object TestFunctions {
             LocatorType.ACCESSIBILITY_ID -> androidDriver.findElement(AppiumBy.accessibilityId(locator))
             LocatorType.CLASS_NAME -> androidDriver.findElement(AppiumBy.className(locator))
         }
-
-
     }
+
 }

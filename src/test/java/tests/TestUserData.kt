@@ -2,6 +2,8 @@ package tests
 
 import GlobalVariables.androidDriver
 import MainActivity
+import TestFunctions.changeUserData
+import TestFunctions.checkUserData
 import TestFunctions.clearField
 import TestFunctions.clickToElement
 import TestFunctions.getText
@@ -37,59 +39,14 @@ class TestUserData : MainActivity() {
         clickToElement(myData.androidAccessId, LocatorType.ACCESSIBILITY_ID)
         var userName = getText(Name.androidXPath, LocatorType.XPATH)
         when (userName) {
-            userData1[Name.androidXPath] -> {
-                for ((key, value) in userData2) {
-                    if (key == Birthday.androidXPath) {
-                        println("No trigger. Birthday.")
-                    }
-                    else {
-                        clickToElement(key, LocatorType.XPATH)
-                        clearField(key, LocatorType.XPATH)
-                        clickToElement(key, LocatorType.XPATH)
-                        sendText(key, LocatorType.XPATH, value)
-                    }
-                }
-                clickToElement(saveData.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-            }
-            userData2[Name.androidXPath] -> {
-                for ((key, value) in userData1) {
-                    if (key == Birthday.androidXPath) {
-                        println("No trigger. Birthday.")
-                    }
-                    else {
-                        clickToElement(key, LocatorType.XPATH)
-                        clearField(key, LocatorType.XPATH)
-                        clickToElement(key, LocatorType.XPATH)
-                        sendText(key, LocatorType.XPATH, value)
-                    }
-                }
-                clickToElement(saveData.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-            }
+            userData1[Name.androidXPath] -> changeUserData(userData2)
+            userData2[Name.androidXPath] -> changeUserData(userData1)
         }
         clickToElement(myData.androidAccessId, LocatorType.ACCESSIBILITY_ID)
         userName =  getText(Name.androidXPath, LocatorType.XPATH)
         when (userName) {
-            userData1[Name.androidXPath] -> {
-                for ((key, value) in userData1) {
-                    if (getText(key, LocatorType.XPATH) == value) {
-                        println("$value соответствует!")
-                    }
-                    else {
-                        println("$value не соответствует, ОШИБКА!!!")
-                    }
-                }
-            }
-            userData2[Name.androidXPath] -> {
-                for ((key, value) in userData2) {
-                    if (getText(key, LocatorType.XPATH) == value) {
-                        println("$value соответствует!")
-                    }
-                    else {
-                        println("$value не соответствует, ОШИБКА!!!")
-                    }
-                }
-            }
-
+            userData1[Name.androidXPath] -> checkUserData(userData1)
+            userData2[Name.androidXPath] -> checkUserData(userData2)
         }
         TimeUnit.SECONDS.sleep(2)
         tapExitPage(ExitMyData.androidAccessId, LocatorType.ACCESSIBILITY_ID)
