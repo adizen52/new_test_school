@@ -1,4 +1,6 @@
 import GlobalVariables.androidDriver
+import GlobalVariables.iosDriver
+import GlobalVariables.platformType
 import TestFunctions.BeforeSuitFun
 import TestFunctions.checkAvaliableElemnt
 import TestFunctions.clickToElement
@@ -6,7 +8,11 @@ import TestFunctions.phoneCode
 import TestFunctions.sendText
 import general_cases_for_test.AutorizationScenaries.checkAutorizaitionUser
 import io.appium.java_client.android.AndroidDriver
+import io.appium.java_client.ios.IOSDriver
+import io.appium.java_client.remote.AndroidMobileCapabilityType
+import io.appium.java_client.remote.IOSMobileCapabilityType
 import io.appium.java_client.remote.MobileCapabilityType
+import io.appium.java_client.remote.MobilePlatform
 import org.openqa.selenium.remote.DesiredCapabilities
 import org.testng.annotations.AfterClass
 import org.testng.annotations.AfterMethod
@@ -14,6 +20,7 @@ import org.testng.annotations.AfterSuite
 import org.testng.annotations.BeforeClass
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.BeforeSuite
+import org.testng.annotations.Parameters
 import screens.DeliveryMethod.selectPickup
 import screens.EnterScreens.getCode
 import screens.EnterScreens.inputCode
@@ -32,23 +39,44 @@ import java.util.concurrent.TimeUnit
 open class MainActivity {
 
     @BeforeSuite
-    fun installDriver(){
+    @Parameters(
+        value = ["paramPlatformName", "paramPlatformVersion", "paramDeviceName",
+            "paramUDID", "paramTimeToSearchElement", "paramPathToApp"]
+    )
+    fun installDriver(paramPlatformName: TypeOS, paramPlatformVersion: String,
+                      paramDeviceName: String, paramUDID: String, paramTimeToSearchElement: Long,
+                      paramPathToApp: String) {
 
         val capabilities = DesiredCapabilities()
 
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,  "Android")
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "14.0")
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel")
-        capabilities.setCapability(MobileCapabilityType.APP, "/Users/admin/apps/app-profile.apk")
-        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2")
-//        capabilities.setCapability(MobileCapabilityType.NO_RESET, true)
-        //capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "starter.school.client")
-        //capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "starter.school.client.MainActivity")
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,  paramPlatformName)
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, paramPlatformVersion)
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, paramDeviceName)
+        capabilities.setCapability(MobileCapabilityType.APP, paramPathToApp)
+       // capabilities.setCapability(MobileCapabilityType.NO_RESET, true)
 
+        if (paramPlatformName == TypeOS.ANDROID) {
+            capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2")
+            capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "starter.school.client")
+            capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "starter.school.client.MainActivity")
+        } else
+        {
+            capabilities.setCapability(IOSMobileCapabilityType.WDA_CONNECTION_TIMEOUT, 80000)
+            capabilities.setCapability(IOSMobileCapabilityType.COMMAND_TIMEOUTS, 50000)
+            capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest")
+        }
 
         val url = URL("http://127.0.0.1:4723/")
-        androidDriver = AndroidDriver(url, capabilities)
-        androidDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10))
+
+        if (paramPlatformName == TypeOS.ANDROID) {
+            androidDriver = AndroidDriver(url, capabilities)
+            androidDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(paramTimeToSearchElement))
+        } else {
+            iosDriver = IOSDriver(url, capabilities)
+            iosDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(paramTimeToSearchElement))
+        }
+
+        platformType = paramPlatformName
 
         try {
             BeforeSuitFun()
@@ -62,7 +90,11 @@ open class MainActivity {
 
     @AfterSuite
     fun quitDriver(){
-        androidDriver.quit()
+        if (platformType == TypeOS.ANDROID) {
+            androidDriver.quit()
+        } else {
+            iosDriver.quit()
+        }
     }
 
     @BeforeClass
@@ -77,13 +109,25 @@ open class MainActivity {
 
     @BeforeMethod     //запуск приложения заново
     fun launceApp(){
-        androidDriver.activateApp(BUNDLE_ID)
-        TimeUnit.SECONDS.sleep(5)   //Таймаут после запуска
+        if (platformType == TypeOS.ANDROID) {
+            androidDriver.activateApp(BUNDLE_ID)
+            TimeUnit.SECONDS.sleep(5)
+        } else {
+            iosDriver.activateApp(BUNDLE_ID)
+            TimeUnit.SECONDS.sleep(5)
+        }
+           //Таймаут после запуска
     }
 
     @AfterMethod        //закрытие приложения
     fun closeApp(){
-        androidDriver.terminateApp(BUNDLE_ID)
+        if (platformType == TypeOS.ANDROID) {
+            androidDriver.terminateApp(BUNDLE_ID)
+        } else {
+            iosDriver.terminateApp(BUNDLE_ID)
+        }
+
+
     }
 
     companion object {

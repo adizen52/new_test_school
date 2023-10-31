@@ -6,22 +6,27 @@ object EnterScreens {
 
     val inputPhone = ScreenConstructor(
         androidClassName = "android.widget.EditText",
+        iosClassName = "XCUIElementTypeTextField",
         elementName = "Поле ввода номера для входа"
     )
 
     val getCode = ScreenConstructor(
         androidAccessId = "Получить код",
+        iosAccessibilityId = "Получить код",
         elementName = "Кнопка для получения кода по номеру"
     )
 
     val condition = ScreenConstructor(
         androidAccessId = "Регистрируясь, вы соглашаетесь с условиями " +
                 "использования и передачи данных",
+        iosAccessibilityId = "Регистрируясь, вы соглашаетесь с условиями " +
+                "использования и передачи данных",
         elementName = "Кнопка для чтения условий регистрации"
     )
 
     val inputCode = ScreenConstructor(
         androidClassName = "android.widget.EditText",
+        iosClassName = "XCUIElementTypeTextField",
         elementName = "Поле ввода кода из СМС"
     )
 

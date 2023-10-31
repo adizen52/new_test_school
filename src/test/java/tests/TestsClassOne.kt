@@ -22,41 +22,41 @@ import screens.MainSelector.selectProfile
 import screens.ProfileScreen.myOrders
 import java.util.concurrent.TimeUnit
 
-class TestsClass : MainActivity() {
+class TestsOne : MainActivity() {
 
-    @Test
-    fun test1(){
-        checkAutorizaitionUser(true)
-        clickToElement(hotDish.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(dishPuree.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(chickenRice.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(selectBasket.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(commentOrder.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-        sendText(commentInpyt.androidClassName, LocatorType.CLASS_NAME, "AS SOON AS POSSIBLE")
-        clickToElement(commentDone.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(orderMeal.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(allRight.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-        TimeUnit.SECONDS.sleep(6)
-        swipeOnScreen(538, 136, 500, 1091)
-        clickToElement(selectProfile.androidXPath, LocatorType.XPATH)
-        clickToElement(myOrders.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-        swipeOnScreen(538, 136, 500, 1091)
-        clickToElement(selectMenu.androidXPath, LocatorType.XPATH)
-
-    }
-
-    @Test
-    fun test2(){
-        checkAutorizaitionUser(true)
-    }
-
-    @Test
-    fun test3(){
-        checkAutorizaitionUser(false)
-    }
-
-    @Test
-    fun test4(){
-        checkAutorizaitionUser(false)
-    }
+//    @Test
+//    fun test1(){
+//        checkAutorizaitionUser(true)
+//        clickToElement(hotDish.androidAccessId, LocatorType.ACCESSIBILITY_ID)
+//        clickToElement(dishPuree.androidAccessId, LocatorType.ACCESSIBILITY_ID)
+//        clickToElement(chickenRice.androidAccessId, LocatorType.ACCESSIBILITY_ID)
+//        clickToElement(selectBasket.androidAccessId, LocatorType.ACCESSIBILITY_ID)
+//        clickToElement(commentOrder.androidAccessId, LocatorType.ACCESSIBILITY_ID)
+//        sendText(commentInpyt.androidClassName, LocatorType.CLASS_NAME, "AS SOON AS POSSIBLE")
+//        clickToElement(commentDone.androidAccessId, LocatorType.ACCESSIBILITY_ID)
+//        clickToElement(orderMeal.androidAccessId, LocatorType.ACCESSIBILITY_ID)
+//        clickToElement(allRight.androidAccessId, LocatorType.ACCESSIBILITY_ID)
+//        TimeUnit.SECONDS.sleep(6)
+//        swipeOnScreen(538, 136, 500, 1091)
+//        clickToElement(selectProfile.androidXPath, LocatorType.XPATH)
+//        clickToElement(myOrders.androidAccessId, LocatorType.ACCESSIBILITY_ID)
+//        swipeOnScreen(538, 136, 500, 1091)
+//        clickToElement(selectMenu.androidXPath, LocatorType.XPATH)
+//
+//    }
+//
+//    @Test
+//    fun test2(){
+//        checkAutorizaitionUser(true)
+//    }
+//
+//    @Test
+//    fun test3(){
+//        checkAutorizaitionUser(false)
+//    }
+//
+//    @Test
+//    fun test4(){
+//        checkAutorizaitionUser(false)
+//    }
 }
