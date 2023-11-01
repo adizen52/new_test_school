@@ -4,6 +4,7 @@ import MainActivity
 import TestFunctions.clickToElement
 import TestFunctions.sendText
 import TestFunctions.swipeOnScreen
+import TestFunctions.tapMakeAnOrader
 import general_cases_for_test.AutorizationScenaries
 import org.testng.annotations.Test
 import screens.BasketScreen
@@ -29,21 +30,37 @@ class testOrder: MainActivity() {
     @Test
     fun test1(){
         AutorizationScenaries.checkAutorizaitionUser(true)
-        clickToElement(hotDish.androidAccessId, LocatorType.ACCESSIBILITY_ID, hotDish.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(dishPuree.androidAccessId, LocatorType.ACCESSIBILITY_ID, dishPuree.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(chickenRice.androidAccessId, LocatorType.ACCESSIBILITY_ID, chickenRice.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(selectBasket.androidAccessId, LocatorType.ACCESSIBILITY_ID, selectBasket.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(commentOrder.androidAccessId, LocatorType.ACCESSIBILITY_ID, commentOrder.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        sendText(commentInpyt.androidClassName, LocatorType.CLASS_NAME, commentInpyt.iosClassName, LocatorType.CLASS_NAME,"AS SOON AS POSSIBLE")
-        clickToElement(commentDone.androidAccessId, LocatorType.ACCESSIBILITY_ID, commentDone.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(orderMeal.androidAccessId, LocatorType.ACCESSIBILITY_ID, orderMeal.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(allRight.androidAccessId, LocatorType.ACCESSIBILITY_ID, allRight.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        clickToElement(hotDish.androidAccessId, LocatorType.ACCESSIBILITY_ID,
+            hotDish.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        TimeUnit.SECONDS.sleep(1)
+        clickToElement(dishPuree.androidAccessId, LocatorType.ACCESSIBILITY_ID,
+            dishPuree.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        clickToElement(chickenRice.androidAccessId, LocatorType.ACCESSIBILITY_ID,
+            chickenRice.iosClassChain, LocatorType.IOS_CLASS_CHAIN)
+        clickToElement(selectBasket.androidAccessId, LocatorType.ACCESSIBILITY_ID,
+            selectBasket.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        clickToElement(commentOrder.androidAccessId, LocatorType.ACCESSIBILITY_ID,
+            commentOrder.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        sendText(commentInpyt.androidClassName, LocatorType.CLASS_NAME,
+            commentInpyt.iosClassName, LocatorType.CLASS_NAME,"AS SOON AS POSSIBLE")
+        clickToElement(commentDone.androidAccessId, LocatorType.ACCESSIBILITY_ID,
+            commentDone.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        TimeUnit.SECONDS.sleep(3)
+//        clickToElement(orderMeal.androidAccessId, LocatorType.ACCESSIBILITY_ID,
+//            orderMeal.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        tapMakeAnOrader(orderMeal.androidAccessId, LocatorType.ACCESSIBILITY_ID,
+            orderMeal.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        clickToElement(allRight.androidAccessId, LocatorType.ACCESSIBILITY_ID,
+            allRight.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
         TimeUnit.SECONDS.sleep(6)
         swipeOnScreen(538, 136, 500, 1091)
-        clickToElement(selectProfile.androidXPath, LocatorType.XPATH, selectProfile.iosClassChain, LocatorType.IOS_CLASS_CHAIN)
-        clickToElement(myOrders.androidAccessId, LocatorType.ACCESSIBILITY_ID, myOrders.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        clickToElement(selectProfile.androidXPath, LocatorType.XPATH,
+            selectProfile.iosClassChain, LocatorType.IOS_CLASS_CHAIN)
+        clickToElement(myOrders.androidAccessId, LocatorType.ACCESSIBILITY_ID,
+            myOrders.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
         swipeOnScreen(538, 136, 500, 1091)
-        clickToElement(selectMenu.androidXPath, LocatorType.XPATH, selectMenu.iosClassChain, LocatorType.IOS_CLASS_CHAIN)
+        clickToElement(selectMenu.androidXPath, LocatorType.XPATH,
+            selectMenu.iosClassChain, LocatorType.IOS_CLASS_CHAIN)
 
     }
 

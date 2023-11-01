@@ -152,6 +152,21 @@ object TestFunctions {
         }
     }
 
+    fun tapMakeAnOrader (locatorAndroid: String, locatorTypeAndroid: LocatorType,
+                         locatorIOS : String, locatorTypeIOS: LocatorType){
+        val element = changeLocator(locatorAndroid, locatorTypeAndroid,
+            locatorIOS, locatorTypeIOS)
+
+        val sizeElement = element.size
+        val locatorElement = element.location
+
+        val cordX = locatorElement.x + sizeElement.width / 2
+        val cordY = locatorElement.y +sizeElement.height / 2
+
+        tapByCoordinates(cordX, cordY)
+
+    }
+
     fun swipeOnScreen(startCordX: Int, startCordY: Int, moveCordX: Int, moveCordY: Int){
         val finger = PointerInput(PointerInput.Kind.TOUCH, "finger")
         val actions = Sequence(finger, 1)

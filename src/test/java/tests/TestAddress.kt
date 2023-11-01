@@ -40,18 +40,19 @@ class TestAddress : MainActivity() {
         AutorizationScenaries.checkAutorizaitionUser(true)
         clickToElement(selectProfile.androidXPath, LocatorType.XPATH, selectProfile.iosClassChain, LocatorType.IOS_CLASS_CHAIN)
         clickToElement(myAddresses.androidAccessId, LocatorType.ACCESSIBILITY_ID, myAddresses.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(addNewAddress.androidAccessId, LocatorType.ACCESSIBILITY_ID, addNewAddress.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
         TimeUnit.SECONDS.sleep(3)
+        clickToElement(addNewAddress.androidAccessId, LocatorType.ACCESSIBILITY_ID, addNewAddress.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
         try {
             clickToElement(locationResolution.androidXPath, LocatorType.XPATH, locationResolution.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
         } catch (e: org.openqa.selenium.NoSuchElementException) {
             println("Элемента не было")
         }
-        TimeUnit.SECONDS.sleep(2)
+        TimeUnit.SECONDS.sleep(3)
         clickToElement(addNewAddress.androidAccessId, LocatorType.ACCESSIBILITY_ID, addNewAddress.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(lineAddress.androidClassName, LocatorType.CLASS_NAME, lineAddress.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        clickToElement(lineAddress.androidClassName, LocatorType.CLASS_NAME, lineAddress.iosClassName, LocatorType.CLASS_NAME)
+        TimeUnit.SECONDS.sleep(2)
         clickToElement(removeAddress.androidXPath, LocatorType.XPATH, removeAddress.iosClassChain, LocatorType.IOS_CLASS_CHAIN)
-        sendText(lineAddress.androidClassName, LocatorType.CLASS_NAME, lineAddress.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID, "Сапёрный переулок, 24, Санкт-Петербург")
+        sendText(lineAddress.androidClassName, LocatorType.CLASS_NAME, lineAddress.iosClassName, LocatorType.CLASS_NAME, "Сапёрный переулок, 24, Санкт-Петербург")
         clickToElement(valueAddress.androidAccessId, LocatorType.ACCESSIBILITY_ID, valueAddress.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
         clickToElement(flat.androidXPath, LocatorType.XPATH, flat.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
         sendText(flat.androidXPath, LocatorType.XPATH, flat.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID, "1808")

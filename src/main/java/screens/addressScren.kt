@@ -16,7 +16,7 @@ object addressScren {
 
     val lineAddress = ScreenConstructor(
         androidClassName = "android.widget.EditText",
-        iosAccessibilityId = "Адрес",
+        iosClassName = "XCUIElementTypeTextField",
         elementName = "Поле ввода Адреса"
     )
 
@@ -28,11 +28,11 @@ object addressScren {
                 "android.view.View/android.view.View[5]/android.view.View/" +
                 "android.view.View/android.widget.EditText/android.widget.ImageView",
         iosClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/" +
-                "XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/" +
+                "XCUIElementTypeOther/XCUIElementTypeOther/" +
+                "XCUIElementTypeOther/XCUIElementTypeOther[2]/" +
+                "XCUIElementTypeOther[2]/XCUIElementTypeOther[6]/" +
                 "XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/" +
-                "XCUIElementTypeOther[6]/XCUIElementTypeOther[2]/" +
-                "XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/" +
-                "XCUIElementTypeImage",
+                "XCUIElementTypeOther[2]/XCUIElementTypeImage",
         elementName = "Кнопка чтобы убрать из строки адрес"
     )
 
@@ -52,10 +52,6 @@ object addressScren {
         elementName = "Кнокпка на разрешение использования геолокации"
 
     )
-
-
-
-
 
 
 }

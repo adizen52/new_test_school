@@ -18,7 +18,8 @@ object noticeScren {
     )
 
     val AllowTrackActivity = ScreenConstructor(
-        iosClassChain = "(//XCUIElementTypeOther[@name=\"Horizontal scroll bar, 1 page\"])[2]",
+        iosClassChain =  "**/XCUIElementTypeOther[`label == \"Horizontal scroll bar," +
+                " 1 page\"`][2]",
         elementName = "Согласие в сплывающем о наблюдении за активностью"
     )
 
