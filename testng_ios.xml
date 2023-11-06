@@ -10,12 +10,8 @@
     <test verbose="2" preserve-order="true" name="IOS tests" parallel="none">
         <classes>
             <class name="tests.testOrder"/>
-            <class name="tests.TestAddress">
-                <methods>
-                    <include name="Test1"/>
-                    <include name="Test1"/>
-                </methods>
-            </class>
+            <class name="tests.TestAddress"/>
+            <class name="tests.TestUserData"/>
         </classes>
     </test>
 </suite>

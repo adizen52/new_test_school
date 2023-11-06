@@ -6,13 +6,7 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.interactions.Pause
 import org.openqa.selenium.interactions.PointerInput
 import org.openqa.selenium.interactions.Sequence
-import screens.DeliveryMethod.selectPickup
-import screens.MyDataScreens
-import screens.Onboarding.nextButton
-import screens.Onboarding.selectLanguage
-import screens.noticeScren.AllowTrackActivity
-import screens.noticeScren.noticeAllow
-import screens.noticeScren.noticeOn
+import screens.*
 import java.time.Duration
 import java.time.Duration.ofMillis
 import java.util.concurrent.TimeUnit
@@ -20,6 +14,10 @@ import java.util.concurrent.TimeUnit
 
 object TestFunctions {
 
+
+    fun capabilitiesInBefore(){
+
+    }
     fun changeLocator(locatorAndroid: String, locatorTypeAndroid: LocatorType,
                       locatorIOS : String, locatorTypeIOS: LocatorType) : WebElement{
         if (platformType == TypeOS.ANDROID) {
@@ -63,77 +61,43 @@ object TestFunctions {
                 locatorIOS : String, locatorTypeIOS: LocatorType) : String {
         val element = changeLocator(locatorAndroid, locatorTypeAndroid,
             locatorIOS, locatorTypeIOS)
-        val textInElement = element.text
+        val textInElement: String
+        if (platformType == TypeOS.ANDROID) {
+            textInElement = element.text
+        } else {
+            textInElement = element.text
+        }
         return textInElement
     }
 
-    fun phoneCode() : String {
-        var xmlTextPage: String
-        if (platformType == TypeOS.ANDROID) {
-            xmlTextPage = androidDriver.pageSource
-        } else {
-            xmlTextPage = iosDriver.pageSource
-        }
-
-        val code = (xmlTextPage.substringAfter("Введите код из смс&#10;")).substringBefore("&#10;")
-        return code
-    }
 
     fun BeforeSuitFun() {
-        clickToElement(
-            selectLanguage.androidAccessId,
-            LocatorType.ACCESSIBILITY_ID,
-            selectLanguage.iosAccessibilityId,
-            LocatorType.ACCESSIBILITY_ID
-        )
-        clickToElement(
-                nextButton.androidAccessId,
-                LocatorType.ACCESSIBILITY_ID,
-                nextButton.iosAccessibilityId,
-                LocatorType.ACCESSIBILITY_ID
-            )
+
+        Onboarding().clickSelectRusButton()
+        Onboarding().clickNextButton()
+
         if (platformType == TypeOS.IOS) {
             try {
-                clickToElement(
-                    noticeOn.androidAccessId,
-                    LocatorType.ACCESSIBILITY_ID,
-                    noticeOn.iosAccessibilityId,
-                    LocatorType.ACCESSIBILITY_ID
-                )
+                noticeScren().clickNoticeOn()
             } catch (e: org.openqa.selenium.NoSuchElementException) {
                 println("Не было кнопки на уведомления.")
             }
             TimeUnit.SECONDS.sleep(2)
             try {
-                clickToElement(
-                    noticeAllow.androidAccessId,
-                    LocatorType.ACCESSIBILITY_ID,
-                    noticeAllow.iosAccessibilityId,
-                    LocatorType.ACCESSIBILITY_ID
-                )
+                noticeScren().clickNoticeAllow()
             } catch (e: org.openqa.selenium.NoSuchElementException) {
                 println("Не было сообщения о соглашении с уведомлениями.")
             }
             TimeUnit.SECONDS.sleep(2)
             try {
-                clickToElement(
-                    AllowTrackActivity.androidAccessId,
-                    LocatorType.ACCESSIBILITY_ID,
-                    AllowTrackActivity.iosClassChain,
-                    LocatorType.IOS_CLASS_CHAIN
-                )
+                noticeScren().clickAllowTrackActivity()
             } catch (e: org.openqa.selenium.NoSuchElementException)
             {
                 println("Элементов о соглашении УВЕДОМЛЕНИЙ не было.")
             }
         }
         TimeUnit.SECONDS.sleep(5)
-        clickToElement(
-                selectPickup.androidAccessId,
-                LocatorType.ACCESSIBILITY_ID,
-                selectPickup.iosAccessibilityId,
-                LocatorType.ACCESSIBILITY_ID
-            )
+        DeliveryMethod().clickSelectPickup()
     }
 
 
@@ -152,16 +116,18 @@ object TestFunctions {
         }
     }
 
-    fun tapMakeAnOrader (locatorAndroid: String, locatorTypeAndroid: LocatorType,
+
+    fun tapOnCenterElement(locatorAndroid: String, locatorTypeAndroid: LocatorType,
                          locatorIOS : String, locatorTypeIOS: LocatorType){
+
         val element = changeLocator(locatorAndroid, locatorTypeAndroid,
             locatorIOS, locatorTypeIOS)
 
         val sizeElement = element.size
         val locatorElement = element.location
 
-        val cordX = locatorElement.x + sizeElement.width / 2
-        val cordY = locatorElement.y +sizeElement.height / 2
+        val cordX = locatorElement.x + sizeElement.width / 3
+        val cordY = locatorElement.y + sizeElement.height / 3
 
         tapByCoordinates(cordX, cordY)
 
@@ -216,8 +182,12 @@ object TestFunctions {
         tapByCoordinates(tapX, tapY)
     }
 
-    fun tapExitPage(locator : String, locatorType : LocatorType) {
-        val element = findElement(locator, locatorType)
+    fun tapExitPage(locatorAndroid: String, locatorTypeAndroid: LocatorType,
+                    locatorIOS : String, locatorTypeIOS: LocatorType)
+    {
+        val element = changeLocator(locatorAndroid, locatorTypeAndroid,
+            locatorIOS, locatorTypeIOS)
+
         val locateElement = element.location
         val sizeElement = element.size
 
@@ -227,30 +197,46 @@ object TestFunctions {
         tapByCoordinates(tapX, tapY)
     }
 
-//    fun changeUserData(mapUserData: Map<String, String>) {
-//        for ((key, value) in mapUserData) {
-//            if (key == MyDataScreens.Birthday.androidXPath) {
-//                println("No trigger. Birthday.")
-//            } else {
-//                clickToElement(key, LocatorType.XPATH)
-//                clearField(key, LocatorType.XPATH)
-//                clickToElement(key, LocatorType.XPATH)
-//                sendText(key, LocatorType.XPATH, value)
-//            }
-//        }
-//        clickToElement(MyDataScreens.saveData.androidAccessId, LocatorType.ACCESSIBILITY_ID)
-//    }
+    fun changeUserData(mapUserData: Map<String, String>) {
+        val myDataScreens = MyDataScreens()
 
-//    fun checkUserData(mapUserData: Map<String, String>) {
-//        for ((key, value) in mapUserData) {
-//            if (getText(key, LocatorType.XPATH) == value) {
-//                println("$value соответствует!")
-//            }
-//            else {
-//                println("$value не соответствует, ОШИБКА!!!")
-//            }
-//        }
-//    }
+        for ((key, value) in mapUserData) {
+
+            when (key) {
+                "Name" -> myDataScreens.clickClearSendName(value)
+                "Birthday" -> println("Дату изменить нельзя.")
+                "Email" -> myDataScreens.clickClearSendEmail(value)
+                "Instagram" -> myDataScreens.clickClearSendInstagram(value)
+            }
+                    }
+        myDataScreens.clickSaveData()
+        TimeUnit.SECONDS.sleep(3)
+    }
+
+    fun checkUserData(mapUserData: Map<String, String>) {
+        val myDataScreens = MyDataScreens()
+
+        for ((key, value) in mapUserData) {
+            when (key) {
+                "Name" -> {
+                    val name = myDataScreens.getName()
+                    if (name == value) println("$name соответствует") else println("$name НЕ СООТВЕТСТВУЕТ!!!")
+                }
+                "Birthday" -> {
+                    val birthday = myDataScreens.getBirthday()
+                    if (birthday == value) println("$birthday соответствует") else println("$birthday НЕ СООТВЕТСТВУЕТ!!!")
+                }
+                "Email" -> {
+                    val email = myDataScreens.getEmail()
+                    if (email == value) println("$email соответствует") else println("$email НЕ СООТВЕТСТВУЕТ!!!")
+                }
+                "Instagram" -> {
+                    val instagram = myDataScreens.getInstagram()
+                    if (instagram == value) println("$instagram соответствует") else println("$instagram НЕ СООТВЕТСТВУЕТ!!!")
+                }
+            }
+        }
+    }
 
     private fun findElement(locator: String, locatorType: LocatorType) : WebElement {
         return when (locatorType) {

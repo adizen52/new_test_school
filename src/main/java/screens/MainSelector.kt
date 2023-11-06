@@ -1,9 +1,37 @@
 package screens
 
+import TestFunctions.clickToElement
+
 // НИЖНЯЯ ЧАСТЬ ОКНА С ТРЕМЯ ПОЛЯМИ(МЕНЮ, ПРОФИЛЬ, ИНФОРМАЦИОННОЕ ПОЛЕ)
 
-object MainSelector {
-    val selectMenu = ScreenConstructor(
+class MainSelector {
+
+    fun clickSelectMenu(){
+        clickToElement(
+            locatorAndroid = selectMenu.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = selectMenu.iosClassChain,
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+        )
+    }
+
+    fun clickSelectProfile(){
+        clickToElement(
+            locatorAndroid = selectProfile.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = selectProfile.iosClassChain,
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+        )
+    }
+
+    fun clickSelectInformation(){
+        clickToElement(locatorAndroid = selectInformation.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = selectInformation.iosClassChain,
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN)
+    }
+
+    private val selectMenu = ScreenConstructor(
         androidXPath = "/hierarchy/android.widget.FrameLayout/" +
                 "android.widget.LinearLayout/android.widget.FrameLayout/" +
                 "android.widget.FrameLayout/android.widget.FrameLayout/" +
@@ -16,7 +44,7 @@ object MainSelector {
         elementName = "Выбор главного окна с меню"
     )
 
-    val selectProfile = ScreenConstructor(
+    private val selectProfile = ScreenConstructor(
         androidXPath = "/hierarchy/android.widget.FrameLayout/" +
                 "android.widget.LinearLayout/android.widget.FrameLayout/" +
                 "android.widget.FrameLayout/android.widget.FrameLayout/" +
@@ -29,7 +57,7 @@ object MainSelector {
         elementName = "Выбор окна с профилем"
     )
 
-    val selectInformation = ScreenConstructor(
+    private val selectInformation = ScreenConstructor(
         androidXPath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
                 "android.widget.FrameLayout/android.widget.FrameLayout/" +
                 "android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/" +

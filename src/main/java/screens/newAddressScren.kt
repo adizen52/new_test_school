@@ -1,8 +1,115 @@
 package screens
 
-object newAddressScren {
+import TestFunctions.clickToElement
+import TestFunctions.sendText
 
-    val newAddress = ScreenConstructor(
+class newAddressScren {
+
+    fun clickAndSendNewAddress(text : String) {
+        clickToElement(
+            locatorAndroid = newAddress.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = newAddress.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+        sendText(
+            locatorAndroid = newAddress.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = newAddress.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            text
+        )
+    }
+
+    fun clickAndSendFlat(text: String) {
+        clickToElement(
+            locatorAndroid = flat.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = flat.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+        sendText(
+            locatorAndroid = flat.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = flat.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            text)
+    }
+
+    fun clickAndSendEntrance(text: String) {
+        clickToElement(
+            locatorAndroid = entrance.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = entrance.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+        sendText(
+            locatorAndroid = entrance.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = entrance.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            text
+        )
+    }
+
+    fun clickAndSendIntercom(text: String) {
+        clickToElement(
+            locatorAndroid = intercom.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = intercom.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+        sendText(
+            locatorAndroid = intercom.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = intercom.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            text
+        )
+    }
+
+    fun clickAndSendFloor(text: String) {
+        clickToElement(
+            locatorAndroid = floor.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = floor.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+        sendText(
+            locatorAndroid = floor.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = floor.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            text
+        )
+    }
+
+    fun clickAndSendCommentCourier(text: String) {
+        clickToElement(
+            locatorAndroid = commentCourier.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = commentCourier.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+        sendText(
+            locatorAndroid = commentCourier.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = commentCourier.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            text
+        )
+    }
+
+    fun clickSaveAddress() {
+        clickToElement(
+            locatorAndroid = saveAddress.androidAccessId,
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = saveAddress.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+    }
+
+    private val newAddress = ScreenConstructor(
         androidXPath = "/hierarchy/android.widget.FrameLayout/" +
                 "android.widget.LinearLayout/android.widget.FrameLayout/" +
                 "android.widget.FrameLayout/android.widget.FrameLayout/" +
@@ -14,7 +121,7 @@ object newAddressScren {
 
     )
 
-    val flat = ScreenConstructor(
+    private val flat = ScreenConstructor(
         androidXPath = "/hierarchy/android.widget.FrameLayout/" +
                 "android.widget.LinearLayout/android.widget.FrameLayout/" +
                 "android.widget.FrameLayout/android.widget.FrameLayout/" +
@@ -25,7 +132,7 @@ object newAddressScren {
         elementName = "Поле ввода квартиры"
     )
 
-    val entrance = ScreenConstructor(
+    private val entrance = ScreenConstructor(
         androidXPath = "/hierarchy/android.widget.FrameLayout/" +
                 "android.widget.LinearLayout/android.widget.FrameLayout/" +
                 "android.widget.FrameLayout/android.widget.FrameLayout/" +
@@ -36,7 +143,7 @@ object newAddressScren {
         elementName = "Поле ввода подъезда"
     )
 
-    val intercom = ScreenConstructor(
+    private val intercom = ScreenConstructor(
         androidXPath = "/hierarchy/android.widget.FrameLayout/" +
                 "android.widget.LinearLayout/android.widget.FrameLayout/" +
                 "android.widget.FrameLayout/android.widget.FrameLayout/" +
@@ -47,7 +154,7 @@ object newAddressScren {
         elementName = "Поле ввода домофона"
     )
 
-    val floor = ScreenConstructor(
+    private val floor = ScreenConstructor(
         androidXPath = "/hierarchy/android.widget.FrameLayout/" +
                 "android.widget.LinearLayout/android.widget.FrameLayout/" +
                 "android.widget.FrameLayout/android.widget.FrameLayout/" +
@@ -58,7 +165,7 @@ object newAddressScren {
         elementName = "Поле ввода этажа"
     )
 
-    val commentCourier = ScreenConstructor(
+    private val commentCourier = ScreenConstructor(
         androidXPath = "/hierarchy/android.widget.FrameLayout/" +
                 "android.widget.LinearLayout/android.widget.FrameLayout/" +
                 "android.widget.FrameLayout/android.widget.FrameLayout/" +
@@ -69,19 +176,10 @@ object newAddressScren {
         elementName = "Поле ввода комментария для курьера"
     )
 
-    val saveAddress = ScreenConstructor(
+    private val saveAddress = ScreenConstructor(
         androidAccessId = "Сохранить",
         iosAccessibilityId = "Сохранить",
         elementName = "Кнопка сохранения адреса"
     )
-
-    val saperniAddress = ScreenConstructor(
-        androidAccessId = "Сапёрный переулок, 24\n" +
-                "кв 1808, 9 подъезд, 18 этаж. Домофон: 111. Есть лифт",
-        iosAccessibilityId = "Сапёрный переулок, 24\n" +
-                "кв 1808, 9 подъезд, 18 этаж. Домофон: 111. Есть лифт",
-        elementName = "Новый введенный адрес Саперной улицы"
-    )
-
 
 }

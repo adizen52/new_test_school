@@ -1,8 +1,46 @@
 package screens
 
-object MainScreen {
+import TestFunctions.clickToElement
 
-    val selectBasket = ScreenConstructor(
+class MainScreen {
+
+    fun clickSelectBasket(){
+        clickToElement(
+            locatorAndroid = selectBasket.androidAccessId,
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = selectBasket.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+    }
+
+    fun clickDishPuree(){
+        clickToElement(
+            locatorAndroid = dishPuree.androidAccessId,
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = dishPuree.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+    }
+
+    fun clickChikenRice(){
+        clickToElement(
+            locatorAndroid = chickenRice.androidAccessId,
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = chickenRice.iosClassChain,
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+        )
+    }
+
+    fun clickHotDish(){
+        clickToElement(
+            locatorAndroid = hotDish.androidAccessId,
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = hotDish.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+    }
+
+    private val selectBasket = ScreenConstructor(
         androidAccessId = "2\n" +
                 "Корзина\n" +
                 "461 ₽",
@@ -12,19 +50,19 @@ object MainScreen {
         elementName = "Корзина с двумя дабвленными блюдами"
     )
 
-    val dishPuree = ScreenConstructor(
+    private val dishPuree = ScreenConstructor(
         androidAccessId = "111 ₽",
         iosAccessibilityId = "111 ₽",
         elementName = "Добавление блюда ПЮРЕ"
     )
 
-    val chickenRice = ScreenConstructor(
+    private val chickenRice = ScreenConstructor(
         androidAccessId = "350 ₽",
         iosClassChain = "**/XCUIElementTypeImage[`label == \"350 ₽\"`][1]",
         elementName = "Добавление блюда Риу - Кура терьяки"
     )
 
-    val hotDish = ScreenConstructor(
+    private val hotDish = ScreenConstructor(
         androidAccessId = "Горячее",
         iosAccessibilityId = "Горячее",
         elementName = "Выбор горячих блюд"

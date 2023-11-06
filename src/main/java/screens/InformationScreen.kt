@@ -1,8 +1,29 @@
 package screens
 
+import TestFunctions.clickToElement
+
 // ИНФОРМАЦИОННОЕ ОКНО С НОМЕРОМ И ВРЕМЕНЕМ РАБОТЫ КАФЕ
 
-object InformationScreen {
+class InformationScreen {
+
+    fun clickOfferInf() {
+        clickToElement(
+            locatorAndroid = offerInf.androidAccessId,
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = offerInf.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+    }
+
+    fun clickPrivacyPolicy() {
+        clickToElement(
+            locatorAndroid = privacyPolicy.androidAccessId,
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = privacyPolicy.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+    }
+
     val offerInf = ScreenConstructor(
         androidAccessId = "Оферта",
         iosAccessibilityId = "Оферта",

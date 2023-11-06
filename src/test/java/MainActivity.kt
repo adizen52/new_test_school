@@ -2,17 +2,11 @@ import GlobalVariables.androidDriver
 import GlobalVariables.iosDriver
 import GlobalVariables.platformType
 import TestFunctions.BeforeSuitFun
-import TestFunctions.checkAvaliableElemnt
-import TestFunctions.clickToElement
-import TestFunctions.phoneCode
-import TestFunctions.sendText
-import general_cases_for_test.AutorizationScenaries.checkAutorizaitionUser
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.ios.IOSDriver
 import io.appium.java_client.remote.AndroidMobileCapabilityType
 import io.appium.java_client.remote.IOSMobileCapabilityType
 import io.appium.java_client.remote.MobileCapabilityType
-import io.appium.java_client.remote.MobilePlatform
 import org.openqa.selenium.remote.DesiredCapabilities
 import org.testng.annotations.AfterClass
 import org.testng.annotations.AfterMethod
@@ -21,16 +15,6 @@ import org.testng.annotations.BeforeClass
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.BeforeSuite
 import org.testng.annotations.Parameters
-import screens.DeliveryMethod.selectPickup
-import screens.EnterScreens.getCode
-import screens.EnterScreens.inputCode
-import screens.EnterScreens.inputPhone
-import screens.MainSelector.selectProfile
-import screens.MyDataScreens.ExitMyData
-import screens.Onboarding.nextButton
-import screens.Onboarding.selectLanguage
-import screens.ProfileScreen.logInCabinet
-import screens.ProfileScreen.logOut
 import java.net.URL
 
 import java.time.Duration
@@ -53,7 +37,7 @@ open class MainActivity {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, paramPlatformVersion)
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, paramDeviceName)
         capabilities.setCapability(MobileCapabilityType.APP, paramPathToApp)
-       // capabilities.setCapability(MobileCapabilityType.NO_RESET, true)
+        //capabilities.setCapability(MobileCapabilityType.NO_RESET, true)
 
         if (paramPlatformName == TypeOS.ANDROID) {
             capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2")

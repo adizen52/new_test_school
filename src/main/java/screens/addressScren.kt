@@ -1,26 +1,112 @@
 package screens
 
-object addressScren {
+import TestFunctions.checkAvaliableElemnt
+import TestFunctions.clickToElement
+import TestFunctions.sendText
+import TestFunctions.swipeDeleteAddress
+import TestFunctions.tapDeleteAddress
 
-    val addNewAddress = ScreenConstructor(
+class addressScren {
+
+    fun clickAddNewAddress() {
+        clickToElement(
+            locatorAndroid = addNewAddress.androidAccessId,
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = addNewAddress.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+    }
+
+    fun clickDeleteAddress() {
+        tapDeleteAddress(
+            locatorAndroid = deleteAddress.androidAccessId,
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = deleteAddress.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+    }
+
+    fun clickLineAddress() {
+        clickToElement(
+            locatorAndroid = lineAddress.androidClassName,
+            locatorTypeAndroid = LocatorType.CLASS_NAME,
+            locatorIOS = lineAddress.iosClassName,
+            locatorTypeIOS = LocatorType.CLASS_NAME
+        )
+    }
+
+    fun sendLineAddress(text : String) {
+        sendText(
+            locatorAndroid = lineAddress.androidClassName,
+            locatorTypeAndroid = LocatorType.CLASS_NAME,
+            locatorIOS = lineAddress.iosClassName,
+            locatorTypeIOS = LocatorType.CLASS_NAME,
+            text)
+    }
+
+    fun clickRemoveAddress() {
+        clickToElement(
+            locatorAndroid = removeAddress.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = removeAddress.iosClassChain,
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+        )
+    }
+
+    fun clickValueAddress() {
+        clickToElement(
+            locatorAndroid = valueAddress.androidAccessId,
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = valueAddress.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+    }
+
+    fun clickLocationResolution() {
+        clickToElement(
+            locatorAndroid = locationResolution.androidXPath,
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = locationResolution.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+    }
+
+    fun swipeOrCheckSaperniAddress(command: String) {
+        if (command == "CHECK") {
+            checkAvaliableElemnt(
+                locatorAndroid = saperniAddress.androidAccessId,
+                locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+                locatorIOS = saperniAddress.iosAccessibilityId,
+                locatorTypeIOS = LocatorType.ACCESSIBILITY_ID)
+        } else {
+            swipeDeleteAddress(
+                locatorAndroid = saperniAddress.androidAccessId,
+                locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+                locatorIOS = saperniAddress.iosAccessibilityId,
+                locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            )
+        }
+    }
+
+    private val addNewAddress = ScreenConstructor(
         androidAccessId = "Добавить новый адрес",
         iosAccessibilityId = "Добавить новый адрес",
         elementName = "Нажатие кнопки добавление нового адреса"
     )
 
-    val deleteAddress = ScreenConstructor(
+    private val deleteAddress = ScreenConstructor(
         androidAccessId = "Удалить",
         iosAccessibilityId = "Удалить",
         elementName = "Удаление аддреса"
     )
 
-    val lineAddress = ScreenConstructor(
+    private val lineAddress = ScreenConstructor(
         androidClassName = "android.widget.EditText",
         iosClassName = "XCUIElementTypeTextField",
         elementName = "Поле ввода Адреса"
     )
 
-    val removeAddress = ScreenConstructor(
+    private val removeAddress = ScreenConstructor(
         androidXPath = "/hierarchy/android.widget.FrameLayout/" +
                 "android.widget.LinearLayout/android.widget.FrameLayout/" +
                 "android.widget.FrameLayout/android.widget.FrameLayout/" +
@@ -36,13 +122,13 @@ object addressScren {
         elementName = "Кнопка чтобы убрать из строки адрес"
     )
 
-    val valueAddress = ScreenConstructor(
+    private val valueAddress = ScreenConstructor(
         androidAccessId = "Сапёрный переулок, 24, Санкт-Петербург",
         iosAccessibilityId = "Сапёрный переулок, 24, Санкт-Петербург",
         elementName = "Предлагаемый адрес"
     )
 
-    val locationResolution = ScreenConstructor(
+    private val locationResolution = ScreenConstructor(
         androidXPath = "/hierarchy/android.widget.FrameLayout/" +
                 "android.widget.FrameLayout/android.widget.FrameLayout/" +
                 "android.widget.ScrollView/android.widget.LinearLayout/" +
@@ -51,6 +137,14 @@ object addressScren {
         iosAccessibilityId = "Allow Once",
         elementName = "Кнокпка на разрешение использования геолокации"
 
+    )
+
+    private val saperniAddress = ScreenConstructor(
+        androidAccessId = "Сапёрный переулок, 24\n" +
+                "кв 1808, 9 подъезд, 18 этаж. Домофон: 111. Есть лифт",
+        iosAccessibilityId = "Сапёрный переулок, 24\n" +
+                "кв 1808, 9 подъезд, 18 этаж. Домофон: 111. Есть лифт",
+        elementName = "Новый введенный адрес Саперной улицы"
     )
 
 

@@ -1,67 +1,47 @@
 package tests
 
 import MainActivity
-import TestFunctions.clickToElement
-import TestFunctions.sendText
 import TestFunctions.swipeOnScreen
-import TestFunctions.tapMakeAnOrader
 import general_cases_for_test.AutorizationScenaries
 import org.testng.annotations.Test
 import screens.BasketScreen
-import screens.BasketScreen.allRight
-import screens.BasketScreen.commentDone
-import screens.BasketScreen.commentInpyt
-import screens.BasketScreen.commentOrder
-import screens.BasketScreen.orderMeal
 import screens.MainScreen
-import screens.MainScreen.chickenRice
-import screens.MainScreen.dishPuree
-import screens.MainScreen.hotDish
-import screens.MainScreen.selectBasket
 import screens.MainSelector
-import screens.MainSelector.selectMenu
-import screens.MainSelector.selectProfile
 import screens.ProfileScreen
-import screens.ProfileScreen.myOrders
 import java.util.concurrent.TimeUnit
 
 class testOrder: MainActivity() {
 
     @Test
     fun test1(){
+        val mainScreens = MainScreen()
+        val basketScreens = BasketScreen()
+        val mainSelector = MainSelector()
+        val profileScreen = ProfileScreen()
+
         AutorizationScenaries.checkAutorizaitionUser(true)
-        clickToElement(hotDish.androidAccessId, LocatorType.ACCESSIBILITY_ID,
-            hotDish.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        mainScreens.clickHotDish()
         TimeUnit.SECONDS.sleep(1)
-        clickToElement(dishPuree.androidAccessId, LocatorType.ACCESSIBILITY_ID,
-            dishPuree.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(chickenRice.androidAccessId, LocatorType.ACCESSIBILITY_ID,
-            chickenRice.iosClassChain, LocatorType.IOS_CLASS_CHAIN)
-        clickToElement(selectBasket.androidAccessId, LocatorType.ACCESSIBILITY_ID,
-            selectBasket.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(commentOrder.androidAccessId, LocatorType.ACCESSIBILITY_ID,
-            commentOrder.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        sendText(commentInpyt.androidClassName, LocatorType.CLASS_NAME,
-            commentInpyt.iosClassName, LocatorType.CLASS_NAME,"AS SOON AS POSSIBLE")
-        clickToElement(commentDone.androidAccessId, LocatorType.ACCESSIBILITY_ID,
-            commentDone.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        TimeUnit.SECONDS.sleep(3)
-//        clickToElement(orderMeal.androidAccessId, LocatorType.ACCESSIBILITY_ID,
-//            orderMeal.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        tapMakeAnOrader(orderMeal.androidAccessId, LocatorType.ACCESSIBILITY_ID,
-            orderMeal.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        clickToElement(allRight.androidAccessId, LocatorType.ACCESSIBILITY_ID,
-            allRight.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        mainScreens.clickDishPuree()
+        mainScreens.clickChikenRice()
+        mainScreens.clickSelectBasket()
+        try {
+            basketScreens.clickCommentOrder()
+            basketScreens.sendCommentInput("Как можно скорее.")
+            basketScreens.clickCommentDone()
+        } catch (e: org.openqa.selenium.NoSuchElementException)
+        {
+                println("Комментарий уже внесен.")
+        }
+        TimeUnit.SECONDS.sleep(2)
+        basketScreens.tapOnCenterOrderMeal()
+        basketScreens.clickAllRight()
         TimeUnit.SECONDS.sleep(6)
         swipeOnScreen(538, 136, 500, 1091)
-        clickToElement(selectProfile.androidXPath, LocatorType.XPATH,
-            selectProfile.iosClassChain, LocatorType.IOS_CLASS_CHAIN)
-        clickToElement(myOrders.androidAccessId, LocatorType.ACCESSIBILITY_ID,
-            myOrders.iosAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        mainSelector.clickSelectProfile()
+        profileScreen.clickMyOrders()
         swipeOnScreen(538, 136, 500, 1091)
-        clickToElement(selectMenu.androidXPath, LocatorType.XPATH,
-            selectMenu.iosClassChain, LocatorType.IOS_CLASS_CHAIN)
-
+        mainSelector.clickSelectMenu()
     }
 
     @Test
