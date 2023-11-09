@@ -2,6 +2,7 @@ import GlobalVariables.androidDriver
 import GlobalVariables.iosDriver
 import GlobalVariables.platformType
 import TestFunctions.BeforeSuitFun
+import general_cases_for_test.CreateCapabilities.createCapabilities
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.ios.IOSDriver
 import io.appium.java_client.remote.AndroidMobileCapabilityType
@@ -31,24 +32,10 @@ open class MainActivity {
                       paramDeviceName: String, paramUDID: String, paramTimeToSearchElement: Long,
                       paramPathToApp: String) {
 
-        val capabilities = DesiredCapabilities()
 
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,  paramPlatformName)
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, paramPlatformVersion)
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, paramDeviceName)
-        capabilities.setCapability(MobileCapabilityType.APP, paramPathToApp)
-        //capabilities.setCapability(MobileCapabilityType.NO_RESET, true)
-
-        if (paramPlatformName == TypeOS.ANDROID) {
-            capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2")
-            capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "starter.school.client")
-            capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "starter.school.client.MainActivity")
-        } else
-        {
-            capabilities.setCapability(IOSMobileCapabilityType.WDA_CONNECTION_TIMEOUT, 80000)
-            capabilities.setCapability(IOSMobileCapabilityType.COMMAND_TIMEOUTS, 50000)
-            capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest")
-        }
+        val capabilities = createCapabilities(paramPlatformName, paramPlatformVersion,
+            paramDeviceName, paramUDID, paramTimeToSearchElement,
+            paramPathToApp)
 
         val url = URL("http://127.0.0.1:4723/")
 

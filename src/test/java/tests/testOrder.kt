@@ -26,6 +26,13 @@ class testOrder: MainActivity() {
         mainScreens.clickChikenRice()
         mainScreens.clickSelectBasket()
         try {
+            basketScreens.clickAddingDevices()
+            basketScreens.clickReductionDevices()
+        } catch (e: org.openqa.selenium.NoSuchElementException)
+        {
+            println("На IOS динамичный элемент, не хочет его искать -_-")
+        }
+        try {
             basketScreens.clickCommentOrder()
             basketScreens.sendCommentInput("Как можно скорее.")
             basketScreens.clickCommentDone()
@@ -46,7 +53,22 @@ class testOrder: MainActivity() {
 
     @Test
     fun test2(){
+        val mainScreen = MainScreen()
+        val mainSelector = MainSelector()
+
         AutorizationScenaries.checkAutorizaitionUser(true)
+        mainScreen.clickHotDish()
+        mainScreen.clickHotSnacks()
+        mainScreen.clickHotSoups()
+        mainScreen.clickHotPasta()
+        mainScreen.clickHotSandwiches()
+        mainScreen.clickHotPizza()
+        mainScreen.clickHotDesserts()
+        mainScreen.clickHotSalads()
+        mainScreen.clickHotBreakfast()
+        mainScreen.clickHotBread()
+        mainSelector.clickSelectMenu()
+
     }
 
     @Test

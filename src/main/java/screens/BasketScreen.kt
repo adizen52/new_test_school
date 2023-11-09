@@ -157,28 +157,30 @@ class BasketScreen {
     )
 
     private val addingDevices = ScreenConstructor(
-        androidXPath = "//android.view.View[@content-desc=" +
-                "\"Приборы 1\"]/android.widget.ImageView[3]",
-        iosClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/" +
-                "XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/" +
+        androidXPath = "//android.view.View[@content-desc=\"Приборы\n" +
+                "1\"]/android.widget.ImageView[3]",
+        iosClassChain = "**/XCUIElementTypeWindow/XCUIElementTypeOther/" +
+                "XCUIElementTypeOther/XCUIElementTypeOther/" +
+                "XCUIElementTypeOther/XCUIElementTypeOther[2]/" +
                 "XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/" +
                 "XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/" +
                 "XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/" +
-                "XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/" +
-                "XCUIElementTypeOther[4]/XCUIElementTypeImage[3]",
+                "XCUIElementTypeOther[2]/XCUIElementTypeOther[4]/" +
+                "XCUIElementTypeImage[3]",
         elementName = "Добавление столовых приборов"
     )
 
     private val reductionDevices = ScreenConstructor(
-        androidXPath = "//android.view.View[@content-desc=" +
-                "\"Приборы 1\"]/android.widget.ImageView[2]",
-        iosClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/" +
-                "XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/" +
+        androidXPath = "//android.view.View[@content-desc=\"Приборы\n" +
+                "2\"]/android.widget.ImageView[2]",
+        iosClassChain = "**/XCUIElementTypeWindow/XCUIElementTypeOther/" +
+                "XCUIElementTypeOther/XCUIElementTypeOther/" +
+                "XCUIElementTypeOther/XCUIElementTypeOther[2]/" +
                 "XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/" +
                 "XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/" +
                 "XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/" +
-                "XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/" +
-                "XCUIElementTypeOther[4]/XCUIElementTypeImage[2]",
+                "XCUIElementTypeOther[2]/XCUIElementTypeOther[4]/" +
+                "XCUIElementTypeImage[2]",
         elementName = "Уменьшение количества приборов"
     )
 
