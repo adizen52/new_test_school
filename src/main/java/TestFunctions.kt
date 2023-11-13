@@ -14,10 +14,7 @@ import java.util.concurrent.TimeUnit
 
 object TestFunctions {
 
-
-    fun capabilitiesInBefore(){
-
-    }
+    // ВЫБОР ЛОКАТОРОВ (IOS - ANDROID)
     fun changeLocator(locatorAndroid: String, locatorTypeAndroid: LocatorType,
                       locatorIOS : String, locatorTypeIOS: LocatorType) : WebElement{
         if (platformType == TypeOS.ANDROID) {
@@ -29,6 +26,7 @@ object TestFunctions {
         }
     }
 
+    //КЛИК ПО ЭЛЕМЕНТУ
     fun clickToElement(locatorAndroid: String, locatorTypeAndroid: LocatorType,
                        locatorIOS : String, locatorTypeIOS: LocatorType){
         val element = changeLocator(locatorAndroid, locatorTypeAndroid,
@@ -36,6 +34,7 @@ object TestFunctions {
         element.click()
     }
 
+    //вставка текста в элемент
     fun sendText(locatorAndroid: String, locatorTypeAndroid: LocatorType,
                  locatorIOS : String, locatorTypeIOS: LocatorType, text: String){
         val element = changeLocator(locatorAndroid, locatorTypeAndroid,
@@ -43,6 +42,7 @@ object TestFunctions {
         element.sendKeys(text)
     }
 
+    //очистка элемента от текста
     fun clearField(locatorAndroid: String, locatorTypeAndroid: LocatorType,
                    locatorIOS : String, locatorTypeIOS: LocatorType){
         val element = changeLocator(locatorAndroid, locatorTypeAndroid,
@@ -50,6 +50,7 @@ object TestFunctions {
         element.clear()
     }
 
+    //проверка наличия элемента
     fun checkAvaliableElemnt(locatorAndroid: String, locatorTypeAndroid: LocatorType,
                              locatorIOS : String, locatorTypeIOS: LocatorType) : Boolean {
         val element = changeLocator(locatorAndroid, locatorTypeAndroid,
@@ -57,6 +58,7 @@ object TestFunctions {
         return  element.isEnabled
     }
 
+    //получение текста из элемента
     fun getText(locatorAndroid: String, locatorTypeAndroid: LocatorType,
                 locatorIOS : String, locatorTypeIOS: LocatorType) : String {
         val element = changeLocator(locatorAndroid, locatorTypeAndroid,
@@ -70,7 +72,7 @@ object TestFunctions {
         return textInElement
     }
 
-
+    //предтестовые шаги, онбординг + выбор доставки
     fun BeforeSuitFun() {
 
         Onboarding().clickSelectRusButton()
@@ -100,7 +102,7 @@ object TestFunctions {
         DeliveryMethod().clickSelectPickup()
     }
 
-
+    //тап по координатам
     fun tapByCoordinates(cordX: Int, cordY: Int) {
         val finger = PointerInput(PointerInput.Kind.TOUCH, "finger")
         val actions = Sequence(finger, 1)
@@ -116,7 +118,7 @@ object TestFunctions {
         }
     }
 
-
+    //тап по центру элемента, но изменено для кнопки заказа
     fun tapOnCenterElement(locatorAndroid: String, locatorTypeAndroid: LocatorType,
                          locatorIOS : String, locatorTypeIOS: LocatorType){
 
@@ -133,6 +135,7 @@ object TestFunctions {
 
     }
 
+    //общая функция свайпа
     fun swipeOnScreen(startCordX: Int, startCordY: Int, moveCordX: Int, moveCordY: Int){
         val finger = PointerInput(PointerInput.Kind.TOUCH, "finger")
         val actions = Sequence(finger, 1)
@@ -151,6 +154,7 @@ object TestFunctions {
 
     }
 
+    //функция для свайпа при удалении элемента
     fun swipeDeleteAddress(locatorAndroid: String, locatorTypeAndroid: LocatorType,
                            locatorIOS : String, locatorTypeIOS: LocatorType){
         val element = changeLocator(locatorAndroid, locatorTypeAndroid,
@@ -168,6 +172,7 @@ object TestFunctions {
 
     }
 
+    //нажатие на кнопку после свайпа для удаления адреса
     fun tapDeleteAddress(locatorAndroid: String, locatorTypeAndroid: LocatorType,
                          locatorIOS : String, locatorTypeIOS: LocatorType){
         val element = changeLocator(locatorAndroid, locatorTypeAndroid,
@@ -182,6 +187,7 @@ object TestFunctions {
         tapByCoordinates(tapX, tapY)
     }
 
+    //нажатие на свободное поле в сплывающем окне для закрытия
     fun tapExitPage(locatorAndroid: String, locatorTypeAndroid: LocatorType,
                     locatorIOS : String, locatorTypeIOS: LocatorType)
     {
@@ -197,6 +203,7 @@ object TestFunctions {
         tapByCoordinates(tapX, tapY)
     }
 
+    //изменение данных на другие из map
     fun changeUserData(mapUserData: Map<String, String>) {
         val myDataScreens = MyDataScreens()
 
@@ -213,6 +220,7 @@ object TestFunctions {
         TimeUnit.SECONDS.sleep(3)
     }
 
+    //проверка соответствия данных
     fun checkUserData(mapUserData: Map<String, String>) {
         val myDataScreens = MyDataScreens()
 

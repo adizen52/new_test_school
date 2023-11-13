@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit
 
 object AutorizationScenaries {
 
+    //ввод телефона при входе пользователя ios/android
     fun inputUserPhone(){
         val numberPhone = "9616669293"
         if (platformType == TypeOS.IOS) {
@@ -21,6 +22,7 @@ object AutorizationScenaries {
         }
     }
 
+    //ввод кода при входе пользователя
     fun phoneCode() : String {
         var xmlTextPage: String
 
@@ -34,6 +36,7 @@ object AutorizationScenaries {
         return code
     }
 
+    //получении кода со страницы
     fun inputUserCode(userCode: String) {
         if (platformType == TypeOS.IOS) {
             for (number in userCode) {
@@ -44,6 +47,7 @@ object AutorizationScenaries {
         }
     }
 
+    //вход пользователя
     fun userLogIn() {
         MainSelector().clickSelectProfile()
         ProfileScreen().clickLogInCabinet()
@@ -53,12 +57,15 @@ object AutorizationScenaries {
         inputUserCode(phoneCode())
         MainSelector().clickSelectMenu()
     }
+
+    //выход пользователя
     fun userLogOut () {
         MainSelector().clickSelectProfile()
         ProfileScreen().clickLogOut()
         MainSelector().clickSelectMenu()
     }
 
+    //проверка наличия активного пользователя
     fun checkAutorizaitionUser(needAutorizationUser: Boolean) {
         var userIsAutorization: Boolean
         val profileScreen = ProfileScreen()
