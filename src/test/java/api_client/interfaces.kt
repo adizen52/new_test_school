@@ -14,7 +14,7 @@ interface Post : Res{
     ) : Response {
         val response = given()
             .headers(headers)
-            .body(resBody)
+            .body(reqBody)
             .`when`().log().all()
             .post(endPoint)
             .then().log().all()
@@ -29,7 +29,7 @@ interface Post : Res{
 
 interface Get : Res{
     val resBody: Any
-    fun get(queryParams: MutableMap<String,String>)
+    fun get(queryParams: MutableMap<String,String>): Any
     fun getReq(
         endPoint: String,
         queryParams: MutableMap<String, String> = mutableMapOf(),

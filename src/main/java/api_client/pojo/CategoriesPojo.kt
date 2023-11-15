@@ -18,6 +18,5 @@ open class CategoriesPojo {
         @SerializedName("banners") var banners: ArrayList<String> = arrayListOf(),
         @SerializedName("accessibility") var accessibility: String? = null,
         @SerializedName("invertTheme") var invertTheme: Boolean? = null
-
     )
 }

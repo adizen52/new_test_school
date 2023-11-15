@@ -18,14 +18,19 @@ object Environment {
     )
 
     data class Evn(
+
         var authToken: String = "",
-        var sessionId: String = "1f9a128f-0c98-4d5b-8f99-1ff2eb8f4938",
+        var sessionId: String = "5ab9f29b-5db4-44e9-b617-b42cb80a1844",
         val host: String = "https://api.starterapp.ru/school/",
         val shopId: String = "8c65fc68-dfd9-4591-a8f2-9edf77fbd3fd"
     )
 
     data class EndPoints(
-        val categories: String = "categories/${Evn().shopId}/v2",
-        val authResetCode: String = "/auth/resetCode"
+        val categories: String = "categories/${enviroment.shopId}/v2",
+        val authResetCode: String = "auth/resetCode",
+        val authLogin: String = "auth/login",
+        val sessionId: String = "/user/sessionId",
+        val dataUserV2: String = "/user/v2",
+        val mealsV2: String = "/meals/${enviroment.shopId}/v2"
     )
 }

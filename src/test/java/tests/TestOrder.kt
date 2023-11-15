@@ -10,7 +10,7 @@ import screens.MainSelector
 import screens.ProfileScreen
 import java.util.concurrent.TimeUnit
 
-class testOrder: MainActivity() {
+class TestOrder: MainActivity() {
 
     @Test
     fun test1(){
