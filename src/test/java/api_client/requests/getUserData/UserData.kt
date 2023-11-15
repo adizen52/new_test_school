@@ -10,9 +10,9 @@ import io.restassured.response.Response
 
 object UserData : Get, Res, userPojo() {
 
-    override lateinit var resBody: List<userPojo>
+    override lateinit var resBody: userPojo
 
-    override fun getDataFromJSON(response: Response): List<userPojo> {
+    override fun getDataFromJSON(response: Response): userPojo {
         val jsonString: String = response.asString()
         val gson = Gson()
         val itemType = object : TypeToken<List<userPojo>>() {}.type

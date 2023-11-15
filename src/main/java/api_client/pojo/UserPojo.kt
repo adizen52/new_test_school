@@ -68,7 +68,7 @@ open class userPojo {
     )
 
     data class Modifications(
-        @SerializedName("chocolate") var chocolate: String? = null
+        @SerializedName("chocolate") var Chokolate: ArrayList<Any> = arrayListOf()
     )
 
     data class ModificationValues(

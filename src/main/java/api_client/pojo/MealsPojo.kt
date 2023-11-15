@@ -1,6 +1,7 @@
 package api_client.pojo
 
 import com.google.gson.annotations.SerializedName
+import java.util.Objects
 
 open class mealsPojo {
 
@@ -27,10 +28,10 @@ open class mealsPojo {
         @SerializedName("deliveryRestrictions") var deliveryRestrictions: ArrayList<String> = arrayListOf(),
         @SerializedName("updatedAt") var updatedAt: String? = null,
         @SerializedName("createdAt") var createdAt: String? = null,
-        @SerializedName("modifications") var modifications: String? = null,
+        @SerializedName("modifications") var modifications: ArrayList<Any> = arrayListOf(),
         @SerializedName("mainMeal") var mainMeal: Boolean? = null,
-        @SerializedName("modificationValues") var modificationValues: String? = null,
-        @SerializedName("toppingGroups") var toppingGroups: ArrayList<String> = arrayListOf(),
+        @SerializedName("modificationValues") var modificationValues: ArrayList<Any> = arrayListOf(),
+        @SerializedName("toppingGroups") var toppingGroups: ArrayList<Any> = arrayListOf(),
         @SerializedName("media") var media: ArrayList<String> = arrayListOf(),
         @SerializedName("descriptionRich") var descriptionRich: String? = null,
         @SerializedName("previewImage") var previewImage: String? = null,

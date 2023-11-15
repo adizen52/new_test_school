@@ -16,7 +16,7 @@ class TestAPI {
     @Test
     fun TestAPI(){
 
-        Specifications.installSpecification(Specifications.requestSpec(Environment.enviroment.host))
+        Specifications.installSpecification(Specifications.requestSpec(enviroment.host))
 
         println("Вот изначальниый захардкожанный sesId: ${enviroment.sessionId}")
         enviroment.sessionId = SessionId.get(mutableMapOf()).toString()
