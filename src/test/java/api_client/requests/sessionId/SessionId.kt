@@ -3,6 +3,7 @@ package api_client.requests.sessionId
 import Get
 import Res
 import api_client.enviroment.Environment.endPoints
+import api_client.enviroment.Environment.enviroment
 import io.restassured.response.Response
 
 object SessionId: Get, Res {
@@ -13,13 +14,14 @@ object SessionId: Get, Res {
         return response.body.asString()
     }
 
-    override fun get(queryParams: MutableMap<String, String>) : Any {
+    override fun get(queryParams: MutableMap<String, String>) {
         val responseJSON = getReq(
             queryParams = queryParams,
             endPoint = endPoints.sessionId,
             responseType = ResponseType.JSON
         )
         resBody = getDataFromJSON(responseJSON)
-        return resBody
+
+        enviroment.sessionId = resBody.toString()
     }
 }

@@ -15,7 +15,7 @@ object UserData : Get, Res, userPojo() {
     override fun getDataFromJSON(response: Response): userPojo {
         val jsonString: String = response.asString()
         val gson = Gson()
-        val itemType = object : TypeToken<List<userPojo>>() {}.type
+        val itemType = object : TypeToken<userPojo>() {}.type
 
         return gson.fromJson(jsonString, itemType)
     }
