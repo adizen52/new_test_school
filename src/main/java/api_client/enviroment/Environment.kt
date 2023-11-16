@@ -6,8 +6,8 @@ object Environment {
     val endPoints = EndPoints()
     val headers: MutableMap<String, String> = mutableMapOf(
         "authority" to "api.starterapp.ru",
-        "authorization" to enviroment.authToken,
-        "sessionid" to enviroment.sessionId,
+        "authorization" to "",
+        "sessionid" to "",
         "content-type" to "application/json",
         "accept" to "application/json",
         "lang" to "ru",
@@ -19,8 +19,6 @@ object Environment {
 
     data class Evn(
 
-        var authToken: String = "",
-        var sessionId: String = "5ab9f29b-5db4-44e9-b617-b42cb80a1844",
         val host: String = "https://api.starterapp.ru/school/",
         val shopId: String = "8c65fc68-dfd9-4591-a8f2-9edf77fbd3fd"
     )
