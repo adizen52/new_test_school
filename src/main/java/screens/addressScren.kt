@@ -1,10 +1,13 @@
 package screens
 
+import GlobalVariables.platformType
 import TestFunctions.checkAvaliableElemnt
 import TestFunctions.clickToElement
 import TestFunctions.sendText
 import TestFunctions.swipeDeleteAddress
 import TestFunctions.tapDeleteAddress
+import api_client.enviroment.Environment.testAddress
+import api_client.pojo.userPojo
 
 class addressScren {
 
@@ -71,18 +74,23 @@ class addressScren {
         )
     }
 
-    fun swipeOrCheckSaperniAddress(command: String) {
+    fun assignmentTestAddress(element: String) {
+            testAddressScreen.androidAccessId = element
+            testAddressScreen.iosAccessibilityId = element
+    }
+
+    fun swipeOrCheckSTestAddress(command: String) {
         if (command == "CHECK") {
             checkAvaliableElemnt(
-                locatorAndroid = saperniAddress.androidAccessId,
+                locatorAndroid = testAddressScreen.androidAccessId,
                 locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
-                locatorIOS = saperniAddress.iosAccessibilityId,
+                locatorIOS = testAddressScreen.iosAccessibilityId,
                 locatorTypeIOS = LocatorType.ACCESSIBILITY_ID)
         } else {
             swipeDeleteAddress(
-                locatorAndroid = saperniAddress.androidAccessId,
+                locatorAndroid = testAddressScreen.androidAccessId,
                 locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
-                locatorIOS = saperniAddress.iosAccessibilityId,
+                locatorIOS = testAddressScreen.iosAccessibilityId,
                 locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
             )
         }
@@ -139,11 +147,9 @@ class addressScren {
 
     )
 
-    private val saperniAddress = ScreenConstructor(
-        androidAccessId = "Сапёрный переулок, 24\n" +
-                "кв 1808, 9 подъезд, 18 этаж. Домофон: 111. Есть лифт",
-        iosAccessibilityId = "Сапёрный переулок, 24\n" +
-                "кв 1808, 9 подъезд, 18 этаж. Домофон: 111. Есть лифт",
+    private var testAddressScreen = ScreenConstructor(
+        androidAccessId = "",
+        iosAccessibilityId = "",
         elementName = "Новый введенный адрес Саперной улицы"
     )
 

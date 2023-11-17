@@ -1,6 +1,7 @@
 import GlobalVariables.androidDriver
 import GlobalVariables.iosDriver
 import GlobalVariables.platformType
+import api_client.enviroment.Environment.testAddress
 import io.appium.java_client.AppiumBy
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.interactions.Pause
@@ -25,6 +26,7 @@ object TestFunctions {
             return element
         }
     }
+
 
     //КЛИК ПО ЭЛЕМЕНТУ
     fun clickToElement(locatorAndroid: String, locatorTypeAndroid: LocatorType,

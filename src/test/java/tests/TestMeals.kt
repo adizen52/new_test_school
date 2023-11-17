@@ -12,5 +12,6 @@ class TestMeals {
         Specifications.installSpecification(Specifications.requestSpec(enviroment.host))
 
         Meals.get(mutableMapOf())
+
     }
 }

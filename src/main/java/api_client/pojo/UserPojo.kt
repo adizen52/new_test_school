@@ -39,8 +39,8 @@ open class userPojo {
         @SerializedName("doorphone") var doorphone: String? = null,
         @SerializedName("comment") var comment: String? = null,
         @SerializedName("yandex") var yandex: Yandex? = Yandex(),
-        @SerializedName("longitude") var longitude: Int? = null,
-        @SerializedName("latitude") var latitude: Int? = null,
+        @SerializedName("longitude") var longitude: Float? = null,
+        @SerializedName("latitude") var latitude: Float? = null,
         @SerializedName("shopId") var shopId: String? = null,
         @SerializedName("zoneId") var zoneId: String? = null,
         @SerializedName("city") var city: String? = null
@@ -448,8 +448,8 @@ open class userPojo {
         @SerializedName("doorphone") var doorphone: String? = null,
         @SerializedName("comment") var comment: String? = null,
         @SerializedName("yandex1") var yandex: Yandex1? = Yandex1(),
-        @SerializedName("longitude") var longitude: Int? = null,
-        @SerializedName("latitude") var latitude: Int? = null,
+        @SerializedName("longitude") var longitude: Float? = null,
+        @SerializedName("latitude") var latitude: Float? = null,
         @SerializedName("shopId") var shopId: String? = null,
         @SerializedName("zoneId") var zoneId: String? = null,
         @SerializedName("city") var city: String? = null

@@ -2,6 +2,7 @@ package api_client.enviroment
 
 object Environment {
 
+    val testAddress = TestAddress()
     var enviroment = Evn()
     val endPoints = EndPoints()
     val headers: MutableMap<String, String> = mutableMapOf(
@@ -30,5 +31,13 @@ object Environment {
         val sessionId: String = "/user/sessionId",
         val dataUserV2: String = "/user/v2",
         val mealsV2: String = "/meals/${enviroment.shopId}/v2"
+    )
+
+    data class TestAddress(
+        val street : String = "Сапёрный переулок, 24",
+        val flat : String = "1808",
+        val floor : Int = 18,
+        val entrance : String = "9",
+        val doorphone : String = "111"
     )
 }
