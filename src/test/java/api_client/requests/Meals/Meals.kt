@@ -3,9 +3,7 @@ package api_client.requests.Meals
 import Get
 import Res
 import api_client.enviroment.Environment
-import api_client.pojo.CategoriesPojo
 import api_client.pojo.mealsPojo
-import api_client.requests.categories.Categories
 import com.google.common.reflect.TypeToken
 import com.google.gson.Gson
 import io.restassured.response.Response

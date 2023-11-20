@@ -121,6 +121,20 @@ class MainScreen {
         )
     }
 
+    fun newPrice(elemntLocator: String) {
+        priceMeal.androidAccessId = elemntLocator
+        priceMeal.iosAccessibilityId = elemntLocator
+    }
+
+    fun clickMealPrice(){
+        clickToElement(
+            locatorAndroid = priceMeal.androidAccessId,
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = priceMeal.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+        )
+    }
+
     private val selectBasket = ScreenConstructor(
         androidAccessId = "2\n" +
                 "Корзина\n" +
@@ -129,6 +143,12 @@ class MainScreen {
                 "Корзина\n" +
                 "461 ₽",
         elementName = "Корзина с двумя дабвленными блюдами"
+    )
+
+    private val priceMeal = ScreenConstructor(
+        androidAccessId = "",
+        iosAccessibilityId = "",
+        elementName = "Динамическая цена к блюду"
     )
 
     private val dishPuree = ScreenConstructor(
