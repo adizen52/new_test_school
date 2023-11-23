@@ -7,38 +7,46 @@ import TestFunctions.sendText
 
 class EnterScreens {
 
-    fun sendInputPhone(number: String){
+    fun sendInputPhone(number: String, findElementWithoutCatching: Boolean = false){
         sendText(locatorAndroid = inputPhone.androidClassName,
             locatorTypeAndroid = LocatorType.CLASS_NAME,
             locatorIOS = inputPhone.iosClassName,
             locatorTypeIOS = LocatorType.CLASS_NAME,
-            number)
+            elementName = inputPhone.elementName,
+            text = number,
+            findElementWithoutCatching = findElementWithoutCatching)
     }
 
-    fun sendInputCode(number: String) {
+    fun sendInputCode(number: String, findElementWithoutCatching: Boolean = false) {
         sendText(
             locatorAndroid = inputCode.androidClassName,
             locatorTypeAndroid = LocatorType.CLASS_NAME,
             locatorIOS = inputCode.iosClassName,
             locatorTypeIOS = LocatorType.CLASS_NAME,
-            number)
+            elementName = inputCode.elementName,
+            text = number,
+            findElementWithoutCatching = findElementWithoutCatching)
     }
 
-    fun clickGetCode() {
+    fun clickGetCode(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = getCode.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = getCode.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = getCode.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickCondition() {
+    fun clickCondition(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = condition.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = condition.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = condition.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 

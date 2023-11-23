@@ -6,21 +6,25 @@ import TestFunctions.clickToElement
 
 class InformationScreen {
 
-    fun clickOfferInf() {
+    fun clickOfferInf(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = offerInf.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = offerInf.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = offerInf.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickPrivacyPolicy() {
+    fun clickPrivacyPolicy(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = privacyPolicy.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = privacyPolicy.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = privacyPolicy.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 

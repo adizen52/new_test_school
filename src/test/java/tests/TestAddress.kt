@@ -11,14 +11,16 @@ import api_client.requests.auth.AuthResetCode
 import api_client.requests.getUserData.UserData
 import api_client.requests.sessionId.SessionId
 import api_client.specifications.Specifications
+import general_cases_for_test.APIScenaries.getTestAddressApi
 import general_cases_for_test.AutorizationScenaries
+import io.qameta.allure.Description
 import org.testng.annotations.Test
 import screens.*
 import java.util.concurrent.TimeUnit
 
 class TestAddress : MainActivity() {
-
-    @Test
+    @Description("Тест кейсы для работы с адресом доставки")
+    @Test (description = "Добавление тестового адреса и его удаление")
     fun Test1() {
         val mainSelector = MainSelector()
         val profileScreen = ProfileScreen()
@@ -31,7 +33,7 @@ class TestAddress : MainActivity() {
         TimeUnit.SECONDS.sleep(3)
         addressScreen.clickAddNewAddress()
         try {
-            addressScreen.clickLocationResolution()
+            addressScreen.clickLocationResolution(findElementWithoutCatching = true)
         } catch (e: org.openqa.selenium.NoSuchElementException) {
             println("Элемента не было")
         }
@@ -54,42 +56,14 @@ class TestAddress : MainActivity() {
         mainSelector.clickSelectProfile()
         profileScreen.clickMyAddress()
         TimeUnit.SECONDS.sleep(2)
-
-        Specifications.installSpecification(Specifications.requestSpec(enviroment.host))
-        SessionId.get(mutableMapOf())
-        AuthResetCode.post(reqBody = run { AuthResetCode.authResetCodeReqBody(phone = "79616669293") })
-        TimeUnit.SECONDS.sleep(3)
-        AuthLogin.post(reqBody = run { AuthLogin.authLoginReqBody(phone = "79616669293", code = "3256") })
-
-        UserData.get(mutableMapOf())
-        val addresses = UserData.resBody.addresses
-        var locatorElement: String = ""
-        for (address in addresses) {
-            when {
-                testAddress.street == address.street && platformType == TypeOS.IOS -> {
-//                    locatorElement = "**/XCUIElementTypeImage[`label == \"${address.street}\n" +
-//                            "кв ${address.flat}, ${address.entrance} подъезд, ${address.floor} этаж. Домофон: ${address.doorphone}. ${address.comment}\"`]"
-                    locatorElement = "${address.street}\n" +
-                            "кв ${address.flat}, ${address.entrance} подъезд, ${address.floor} этаж. Домофон: ${address.doorphone}. ${address.comment}"
-                    println(locatorElement)
-                }
-                testAddress.street == address.street && platformType == TypeOS.ANDROID -> {
-//                    locatorElement = "//android.view.View[@content-desc=\"${address.street}\n" +
-//                            "кв ${address.flat}, ${address.entrance} подъезд, ${address.floor} этаж. Домофон: ${address.doorphone}. ${address.comment}\"]"
-                    locatorElement = "${address.street}\n" +
-                            "кв ${address.flat}, ${address.entrance} подъезд, ${address.floor} этаж. Домофон: ${address.doorphone}. ${address.comment}"
-                    println(locatorElement)
-                }
-            }
-        }
-        addressScreen.assignmentTestAddress(locatorElement)
+        addressScreen.assignmentTestAddress(getTestAddressApi())
         addressScreen.swipeOrCheckSTestAddress("SWIPE")
         TimeUnit.SECONDS.sleep(2)
         addressScreen.clickDeleteAddress()
         swipeOnScreen(545, 122, 500, 1091)
         profileScreen.clickMyAddress()
         try {
-            addressScreen.swipeOrCheckSTestAddress("CHECK")
+            addressScreen.swipeOrCheckSTestAddress("CHECK", findElementWithoutCatching = true)
         } catch (e: org.openqa.selenium.NoSuchElementException) {
             println("Адрес удален.")
         }

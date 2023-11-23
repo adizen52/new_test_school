@@ -2,122 +2,149 @@ package screens
 
 import TestFunctions.clickToElement
 
+//ОСНОВНОЕ ОКНО С МЕНЮ
 class MainScreen {
 
-    fun clickSelectBasket(){
+    fun clickSelectBasket(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = selectBasket.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = selectBasket.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = selectBasket.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickDishPuree(){
+    fun clickDishPuree(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = dishPuree.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = dishPuree.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = dishPuree.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickChikenRice(){
+    fun clickChikenRice(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = chickenRice.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = chickenRice.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = chickenRice.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickHotDish(){
+    fun clickHotDish(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = hotDish.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = hotDish.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = hotDish.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickHotSnacks(){
+    fun clickHotSnacks(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = snacks.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = snacks.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = snacks.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickHotSoups(){
+    fun clickHotSoups(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = soups.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = soups.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = soups.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickHotPasta(){
+    fun clickHotPasta(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = pasta.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = pasta.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = pasta.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickHotSandwiches(){
+    fun clickHotSandwiches(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = sandwich.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = sandwich.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = sandwich.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickHotPizza(){
+    fun clickHotPizza(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = pizza.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = pizza.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = pizza.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickHotDesserts(){
+    fun clickHotDesserts(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = desserts.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = desserts.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = desserts.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickHotSalads(){
+    fun clickHotSalads(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = salads.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = salads.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = salads.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickHotBreakfast(){
+    fun clickHotBreakfast(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = breakfast.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = breakfast.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = breakfast.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickHotBread(){
+    fun clickHotBread(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = bread.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = bread.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = bread.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
@@ -126,12 +153,14 @@ class MainScreen {
         priceMeal.iosAccessibilityId = elemntLocator
     }
 
-    fun clickMealPrice(){
+    fun clickMealPrice(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = priceMeal.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = priceMeal.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = priceMeal.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 

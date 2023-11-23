@@ -6,29 +6,35 @@ import TestFunctions.clickToElement
 
 class MainSelector {
 
-    fun clickSelectMenu(){
+    fun clickSelectMenu(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = selectMenu.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = selectMenu.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = selectMenu.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickSelectProfile(){
+    fun clickSelectProfile(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = selectProfile.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = selectProfile.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = selectProfile.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickSelectInformation(){
+    fun clickSelectInformation(findElementWithoutCatching: Boolean = false){
         clickToElement(locatorAndroid = selectInformation.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = selectInformation.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN)
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = selectInformation.elementName,
+            findElementWithoutCatching = findElementWithoutCatching)
     }
 
     private val selectMenu = ScreenConstructor(

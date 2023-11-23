@@ -6,21 +6,25 @@ import TestFunctions.clickToElement
 // ВХОДНОЕ ОКНО С ВЫБОРОМ ЯЗЫКА
 class Onboarding {
 
-    fun clickSelectRusButton() {
+    fun clickSelectRusButton(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = selectLanguage.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = selectLanguage.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = selectLanguage.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickNextButton() {
+    fun clickNextButton(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = nextButton.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = nextButton.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = nextButton.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 

@@ -1,76 +1,90 @@
 package screens
 
-import GlobalVariables.platformType
 import TestFunctions.checkAvaliableElemnt
 import TestFunctions.clickToElement
 import TestFunctions.sendText
 import TestFunctions.swipeDeleteAddress
 import TestFunctions.tapDeleteAddress
-import api_client.enviroment.Environment.testAddress
-import api_client.pojo.userPojo
+
+//ОКНО С МОИМИ АДРЕСАМИ
 
 class addressScren {
 
-    fun clickAddNewAddress() {
+    fun clickAddNewAddress(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = addNewAddress.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = addNewAddress.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = addNewAddress.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickDeleteAddress() {
+    fun clickDeleteAddress(findElementWithoutCatching: Boolean = false) {
         tapDeleteAddress(
             locatorAndroid = deleteAddress.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = deleteAddress.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = deleteAddress.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickLineAddress() {
+    fun clickLineAddress(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = lineAddress.androidClassName,
             locatorTypeAndroid = LocatorType.CLASS_NAME,
             locatorIOS = lineAddress.iosClassName,
-            locatorTypeIOS = LocatorType.CLASS_NAME
+            locatorTypeIOS = LocatorType.CLASS_NAME,
+            elementName = lineAddress.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun sendLineAddress(text : String) {
+    fun sendLineAddress(text : String, findElementWithoutCatching: Boolean = false) {
         sendText(
             locatorAndroid = lineAddress.androidClassName,
             locatorTypeAndroid = LocatorType.CLASS_NAME,
             locatorIOS = lineAddress.iosClassName,
             locatorTypeIOS = LocatorType.CLASS_NAME,
-            text)
+            elementName = lineAddress.elementName,
+            text = text,
+            findElementWithoutCatching = findElementWithoutCatching
+        )
     }
 
-    fun clickRemoveAddress() {
+    fun clickRemoveAddress(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = removeAddress.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = removeAddress.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = removeAddress.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickValueAddress() {
+    fun clickValueAddress(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = valueAddress.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = valueAddress.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = valueAddress.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickLocationResolution() {
+    fun clickLocationResolution(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = locationResolution.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = locationResolution.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = locationResolution.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
@@ -79,19 +93,23 @@ class addressScren {
             testAddressScreen.iosAccessibilityId = element
     }
 
-    fun swipeOrCheckSTestAddress(command: String) {
+    fun swipeOrCheckSTestAddress(command: String, findElementWithoutCatching: Boolean = false) {
         if (command == "CHECK") {
             checkAvaliableElemnt(
                 locatorAndroid = testAddressScreen.androidAccessId,
                 locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
                 locatorIOS = testAddressScreen.iosAccessibilityId,
-                locatorTypeIOS = LocatorType.ACCESSIBILITY_ID)
+                locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+                elementName = testAddressScreen.elementName,
+                findElementWithoutCatching = findElementWithoutCatching)
         } else {
             swipeDeleteAddress(
                 locatorAndroid = testAddressScreen.androidAccessId,
                 locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
                 locatorIOS = testAddressScreen.iosAccessibilityId,
-                locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+                locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+                elementName = testAddressScreen.elementName,
+                findElementWithoutCatching = findElementWithoutCatching
             )
         }
     }
@@ -142,7 +160,7 @@ class addressScren {
                 "android.widget.ScrollView/android.widget.LinearLayout/" +
                 "android.widget.LinearLayout/android.widget.LinearLayout[3]/" +
                 "android.widget.Button[1]",
-        iosAccessibilityId = "Allow Once",
+        iosAccessibilityId = "При использовании",
         elementName = "Кнокпка на разрешение использования геолокации"
 
     )
@@ -152,6 +170,4 @@ class addressScren {
         iosAccessibilityId = "",
         elementName = "Новый введенный адрес Саперной улицы"
     )
-
-
 }

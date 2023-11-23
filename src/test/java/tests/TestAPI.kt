@@ -7,12 +7,13 @@ import api_client.requests.auth.AuthResetCode
 import api_client.requests.categories.Categories
 import api_client.requests.sessionId.SessionId
 import api_client.specifications.Specifications
+import io.qameta.allure.Description
 import org.testng.annotations.Test
 import java.util.concurrent.TimeUnit
 
 class TestAPI {
-
-    @Test
+    @Description("Проверка запросов API")
+    @Test(description = "Проверка авторизации с использованием API")
     fun TestAPI(){
 
         Specifications.installSpecification(Specifications.requestSpec(enviroment.host))
@@ -27,18 +28,7 @@ class TestAPI {
 
         Categories.get(mutableMapOf())
 
-
         Meals.get(mutableMapOf())
-
-
-
-
-
-
-
-
-
-
 
     }
 

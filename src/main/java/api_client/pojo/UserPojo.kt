@@ -30,7 +30,6 @@ open class userPojo {
     )
 
     data class Address(
-
         @SerializedName("code") var code: Int? = null,
         @SerializedName("street") var street: String? = null,
         @SerializedName("flat") var flat: String? = null,
@@ -44,11 +43,9 @@ open class userPojo {
         @SerializedName("shopId") var shopId: String? = null,
         @SerializedName("zoneId") var zoneId: String? = null,
         @SerializedName("city") var city: String? = null
-
     )
 
     data class Toppings(
-
         @SerializedName("code") var code: String? = null,
         @SerializedName("name") var name: String? = null,
         @SerializedName("price") var price: Int? = null,
@@ -57,14 +54,11 @@ open class userPojo {
         @SerializedName("required") var required: Boolean? = null,
         @SerializedName("images") var images: ArrayList<String> = arrayListOf(),
         @SerializedName("quantity") var quantity: Int? = null
-
     )
 
     data class Tags(
-
         @SerializedName("code") var code: String? = null,
         @SerializedName("name") var name: String? = null
-
     )
 
     data class Modifications(
@@ -72,14 +66,11 @@ open class userPojo {
     )
 
     data class ModificationValues(
-
         @SerializedName("type") var type: String? = null,
         @SerializedName("name") var name: String? = null
-
     )
 
     data class Toppings1(
-
         @SerializedName("code") var code: String? = null,
         @SerializedName("name") var name: String? = null,
         @SerializedName("price") var price: Int? = null,
@@ -88,21 +79,17 @@ open class userPojo {
         @SerializedName("required") var required: Boolean? = null,
         @SerializedName("images") var images: ArrayList<String> = arrayListOf(),
         @SerializedName("quantity") var quantity: Int? = null
-
     )
 
     data class ToppingGroups(
-
         @SerializedName("maxAmount") var maxAmount: Int? = null,
         @SerializedName("minAmount") var minAmount: Int? = null,
         @SerializedName("required") var required: Boolean? = null,
         @SerializedName("groupName") var groupName: String? = null,
         @SerializedName("toppings") var toppings: ArrayList<Toppings> = arrayListOf()
-
     )
 
     data class Product(
-
         @SerializedName("name") var name: String? = null,
         @SerializedName("status") var status: String? = null,
         @SerializedName("code") var code: String? = null,
@@ -132,11 +119,9 @@ open class userPojo {
         @SerializedName("descriptionRich") var descriptionRich: ArrayList<String> = arrayListOf(),
         @SerializedName("previewImage") var previewImage: String? = null,
         @SerializedName("minPrice") var minPrice: Int? = null
-
     )
 
     data class Items1(
-
         @SerializedName("code") var code: Int? = null,
         @SerializedName("price") var price: Int? = null,
         @SerializedName("discountPrice") var discountPrice: Int? = null,
@@ -151,19 +136,15 @@ open class userPojo {
         @SerializedName("categoryNotAccessibility") var categoryNotAccessibility: String? = null,
         @SerializedName("notAccessibleByBrand") var notAccessibleByBrand: Boolean? = null,
         @SerializedName("notAccessibleByStopList") var notAccessibleByStopList: Boolean? = null
-
     )
 
     data class DeliveryPrice(
-
         @SerializedName("basketPriceTo") var basketPriceTo: Int? = null,
         @SerializedName("price") var price: Int? = null,
         @SerializedName("description") var description: String? = null
-
     )
 
     data class DeliveryTypePrice(
-
         @SerializedName("deliveryType") var deliveryType: String? = null,
         @SerializedName("minBasketPrice") var minBasketPrice: Int? = null,
         @SerializedName("defaultDeliveryPrice") var defaultDeliveryPrice: Int? = null,
@@ -171,29 +152,23 @@ open class userPojo {
         @SerializedName("deliveryTime") var deliveryTime: Int? = null,
         @SerializedName("paymentTypes") var paymentTypes: ArrayList<String> = arrayListOf(),
         @SerializedName("packageReturn") var packageReturn: Boolean? = null
-
     )
 
     data class Items(
-
         @SerializedName("code") var code: String? = null,
         @SerializedName("quantity") var quantity: Int? = null,
         @SerializedName("totalPrice") var totalPrice: String? = null
-
     )
 
     data class PackageItems(
-
         @SerializedName("code") var code: String? = null,
         @SerializedName("name") var name: String? = null,
         @SerializedName("items") var items: ArrayList<Items> = arrayListOf(),
         @SerializedName("totalPrice") var totalPrice: String? = null,
         @SerializedName("maxFreeQuantity") var maxFreeQuantity: Int? = null
-
     )
 
     data class User(
-
         @SerializedName("name") var name: String? = null,
         @SerializedName("phone") var phone: String? = null,
         @SerializedName("session") var session: String? = null,
@@ -203,39 +178,31 @@ open class userPojo {
         @SerializedName("email") var email: String? = null,
         @SerializedName("birthDate") var birthDate: String? = null,
         @SerializedName("bonusCardCode") var bonusCardCode: String? = null
-
     )
 
     data class Promocode(
-
         @SerializedName("code") var code: String? = null,
         @SerializedName("status") var status: String? = null,
         @SerializedName("message") var message: String? = null,
         @SerializedName("discount") var discount: Int? = null,
         @SerializedName("type") var type: String? = null,
         @SerializedName("value") var value: Int? = null
-
     )
 
     data class Condition(
-
         @SerializedName("minPrice") var minPrice: Int? = null,
         @SerializedName("maxPrice") var maxPrice: Int? = null,
         @SerializedName("deliveryType") var deliveryType: ArrayList<String> = arrayListOf(),
         @SerializedName("paymentType") var paymentType: ArrayList<String> = arrayListOf(),
         @SerializedName("meals") var meals: ArrayList<String> = arrayListOf()
-
     )
 
     data class Meals(
-
         @SerializedName("code") var code: String? = null,
         @SerializedName("quantity") var quantity: Int? = null
-
     )
 
     data class GoalDiscounts(
-
         @SerializedName("description") var description: String? = null,
         @SerializedName("lastApplicable") var lastApplicable: Boolean? = null,
         @SerializedName("type") var type: String? = null,
@@ -244,25 +211,19 @@ open class userPojo {
         @SerializedName("meals") var meals: ArrayList<Meals> = arrayListOf(),
         @SerializedName("popupTitle") var popupTitle: String? = null,
         @SerializedName("popupDescription") var popupDescription: String? = null
-
     )
 
     data class Meals1(
-
         @SerializedName("code") var code: String? = null,
         @SerializedName("quantity") var quantity: Int? = null
-
     )
 
     data class Conditions(
-
         @SerializedName("completed") var completed: Boolean? = null,
         @SerializedName("title") var title: String? = null
-
     )
 
     data class Discounts(
-
         @SerializedName("name") var name: String? = null,
         @SerializedName("status") var status: String? = null,
         @SerializedName("message") var message: String? = null,
@@ -274,11 +235,9 @@ open class userPojo {
         @SerializedName("meals") var meals: ArrayList<Meals> = arrayListOf(),
         @SerializedName("conditions") var conditions: ArrayList<Conditions> = arrayListOf(),
         @SerializedName("code") var code: String? = null
-
     )
 
     data class Toppings2(
-
         @SerializedName("code") var code: String? = null,
         @SerializedName("name") var name: String? = null,
         @SerializedName("price") var price: Int? = null,
@@ -287,14 +246,11 @@ open class userPojo {
         @SerializedName("required") var required: Boolean? = null,
         @SerializedName("images") var images: ArrayList<String> = arrayListOf(),
         @SerializedName("quantity") var quantity: Int? = null
-
     )
 
     data class Tags2(
-
         @SerializedName("code") var code: String? = null,
         @SerializedName("name") var name: String? = null
-
     )
 
     data class Modifications2(
@@ -302,14 +258,11 @@ open class userPojo {
     )
 
     data class ModificationValues1(
-
         @SerializedName("type") var type: String? = null,
         @SerializedName("name") var name: String? = null
-
     )
 
     data class Toppings3(
-
         @SerializedName("code") var code: String? = null,
         @SerializedName("name") var name: String? = null,
         @SerializedName("price") var price: Int? = null,
@@ -318,21 +271,17 @@ open class userPojo {
         @SerializedName("required") var required: Boolean? = null,
         @SerializedName("images") var images: ArrayList<String> = arrayListOf(),
         @SerializedName("quantity") var quantity: Int? = null
-
     )
 
     data class ToppingGroups1(
-
         @SerializedName("maxAmount") var maxAmount: Int? = null,
         @SerializedName("minAmount") var minAmount: Int? = null,
         @SerializedName("required") var required: Boolean? = null,
         @SerializedName("groupName") var groupName: String? = null,
         @SerializedName("toppings") var toppings: ArrayList<Toppings> = arrayListOf()
-
     )
 
     data class Product1(
-
         @SerializedName("name") var name: String? = null,
         @SerializedName("status") var status: String? = null,
         @SerializedName("code") var code: String? = null,
@@ -362,11 +311,9 @@ open class userPojo {
         @SerializedName("descriptionRich") var descriptionRich: ArrayList<String> = arrayListOf(),
         @SerializedName("previewImage") var previewImage: String? = null,
         @SerializedName("minPrice") var minPrice: Int? = null
-
     )
 
     data class StopListItems(
-
         @SerializedName("code") var code: Int? = null,
         @SerializedName("price") var price: Int? = null,
         @SerializedName("discountPrice") var discountPrice: Int? = null,
@@ -381,11 +328,9 @@ open class userPojo {
         @SerializedName("categoryNotAccessibility") var categoryNotAccessibility: String? = null,
         @SerializedName("notAccessibleByBrand") var notAccessibleByBrand: Boolean? = null,
         @SerializedName("notAccessibleByStopList") var notAccessibleByStopList: Boolean? = null
-
     )
 
     data class Order(
-
         @SerializedName("flatwareAmount") var flatwareAmount: Int? = null,
         @SerializedName("safeDelivery") var safeDelivery: Boolean? = null,
         @SerializedName("comment") var comment: String? = null,
@@ -431,7 +376,6 @@ open class userPojo {
         @SerializedName("discounts") var discounts: ArrayList<Discounts> = arrayListOf(),
         @SerializedName("stopListItems") var stopListItems: ArrayList<StopListItems> = arrayListOf(),
         @SerializedName("upsale") var upsale: ArrayList<String> = arrayListOf()
-
     )
 
     data class Yandex1(
@@ -439,7 +383,6 @@ open class userPojo {
     )
 
     data class Addresses(
-
         @SerializedName("code") var code: Int? = null,
         @SerializedName("street") var street: String? = null,
         @SerializedName("flat") var flat: String? = null,
@@ -453,24 +396,19 @@ open class userPojo {
         @SerializedName("shopId") var shopId: String? = null,
         @SerializedName("zoneId") var zoneId: String? = null,
         @SerializedName("city") var city: String? = null
-
     )
 
     data class Wallet(
-
         @SerializedName("name") var name: String? = null,
         @SerializedName("method") var method: String? = null
-
     )
 
     data class Levels(
-
         @SerializedName("title") var title: String? = null,
         @SerializedName("minBound") var minBound: Int? = null,
         @SerializedName("maxBound") var maxBound: Int? = null,
         @SerializedName("type") var type: String? = null,
         @SerializedName("value") var value: Int? = null
-
     )
 
     data class Choices(
@@ -478,17 +416,14 @@ open class userPojo {
     )
 
     data class ExtraCustomerFields(
-
         @SerializedName("title") var title: String? = null,
         @SerializedName("type") var type: String? = null,
         @SerializedName("value") var value: String? = null,
         @SerializedName("required") var required: Boolean? = null,
         @SerializedName("choices") var choices: Choices? = Choices()
-
     )
 
     data class BonusProgram(
-
         @SerializedName("withdrawPercent") var withdrawPercent: Int? = null,
         @SerializedName("refillPercent") var refillPercent: Int? = null,
         @SerializedName("canUseWithPromocode") var canUseWithPromocode: Boolean? = null,
@@ -500,6 +435,5 @@ open class userPojo {
         @SerializedName("extraFields") var extraFields: ArrayList<String> = arrayListOf(),
         @SerializedName("level") var level: String? = null,
         @SerializedName("isLoyaltyActive") var isLoyaltyActive: Boolean? = null
-
     )
 }

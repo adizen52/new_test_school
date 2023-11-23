@@ -1,10 +1,11 @@
 import api_client.enviroment.Environment.headers
 import com.google.gson.Gson
+import io.qameta.allure.Attachment
 import io.restassured.RestAssured.given
 import io.restassured.response.Response
 
 
-interface Post : Res{
+interface Post : Res, Allure{
     val resBody: Any
     fun post(reqBody: Any)
     fun postReq(
@@ -22,12 +23,16 @@ interface Post : Res{
 
         if (responseType == ResponseType.JSON){
             super.getDataFromJSON(response)
-        }
+            super.attachResBody(getDataFromJSON(response))
+        } else super.attachResBody(response.body.asString())
+
+        super.attachResBody(response.statusCode)
+
         return response
     }
 }
 
-interface Get : Res{
+interface Get : Res, Allure{
     val resBody: Any
     fun get(queryParams: MutableMap<String,String>): Any
     fun getReq(
@@ -45,7 +50,11 @@ interface Get : Res{
 
         if (responseType == ResponseType.JSON) {
             super.getDataFromJSON(response)
-        }
+            super.attachResBody(getDataFromJSON(response))
+        } else super.attachResBody(response.body.asString())
+
+        super.attachResBody(response.statusCode)
+
         return response
     }
 }
@@ -55,5 +64,20 @@ interface Res {
         val jsonString = response.toString()
         val gson = Gson()
         return gson.fromJson(jsonString, Any::class.java)
+    }
+}
+
+interface Allure {
+    // Преобразование ответа из class в json и приложение его к отчету
+    @Attachment(value = "Response", type = "application/json")
+    fun attachResBody(res: Any): String? {
+        val gson = Gson()
+        return gson.toJson(res)
+    }
+
+    // Приложение кода ответа к отчету
+    @Attachment(value = "Status Code", type = "application/json")
+    fun attachStatusCode(status: Int): Int {
+        return status
     }
 }

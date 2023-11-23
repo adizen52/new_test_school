@@ -9,6 +9,9 @@
     <parameter name="paramPathToApp" value="/Users/admin/apps/app-profile.apk"/>
     <test verbose="2" preserve-order="true" name="Android tests" parallel="none">
         <classes>
+            <class name="tests.TestOrder"/>
+            <class name="tests.TestAddress"/>
+            <class name="tests.TestUserData"/>
             <class name="tests.TestAPI"/>
         </classes>
     </test>

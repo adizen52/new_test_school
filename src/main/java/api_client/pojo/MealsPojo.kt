@@ -1,7 +1,6 @@
 package api_client.pojo
 
 import com.google.gson.annotations.SerializedName
-import java.util.Objects
 
 open class mealsPojo {
 

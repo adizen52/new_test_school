@@ -62,6 +62,7 @@ object AutorizationScenaries {
     fun userLogOut () {
         MainSelector().clickSelectProfile()
         ProfileScreen().clickLogOut()
+        TimeUnit.SECONDS.sleep(1)
         MainSelector().clickSelectMenu()
     }
 
@@ -73,7 +74,7 @@ object AutorizationScenaries {
         try {
             MainSelector().clickSelectProfile()
 
-            userIsAutorization = profileScreen.checkLogOut()
+            userIsAutorization = profileScreen.checkLogOut(findElementWithoutCatching = true)
         } catch (e: org.openqa.selenium.NoSuchElementException) {
             userIsAutorization = false
         }

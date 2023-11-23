@@ -5,184 +5,229 @@ import TestFunctions.clickToElement
 import TestFunctions.getText
 import TestFunctions.sendText
 import TestFunctions.tapExitPage
-import java.sql.Savepoint
 
 // ВСПЛЫВАЮЩЕЕ ОКНО - ДАННЫХ О ПОЛЬЗОВАТЕЛЕ
 
 class MyDataScreens {
 
-    fun getName() : String{
+    fun getName(findElementWithoutCatching: Boolean = false) : String{
         return getText(
             locatorAndroid = Name.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Name.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN)
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Name.elementName,
+            findElementWithoutCatching = findElementWithoutCatching)
     }
 
-    fun clickClearSendName(name: String) {
+    fun clickClearSendName(name: String, findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = Name.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Name.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Name.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         clearField(
             locatorAndroid = Name.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Name.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Name.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         clickToElement(
             locatorAndroid = Name.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Name.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Name.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         sendText(
             locatorAndroid = Name.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Name.iosClassChain,
             locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
-            name
+            elementName = Name.elementName,
+            text = name,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun getBirthday() : String{
+    fun getBirthday(findElementWithoutCatching: Boolean = false) : String{
         return getText(
             locatorAndroid = Birthday.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Birthday.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN)
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Birthday.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
+        )
     }
 
-    fun clickClearSendBirthday(birthday: String) {
+    fun clickClearSendBirthday(birthday: String, findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = Birthday.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Birthday.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Birthday.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         clearField(
             locatorAndroid = Birthday.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Birthday.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Birthday.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         clickToElement(
             locatorAndroid = Birthday.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Birthday.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Birthday.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         sendText(
             locatorAndroid = Birthday.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Birthday.iosClassChain,
             locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
-            birthday
+            elementName = Birthday.elementName,
+            text = birthday,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun getEmail() : String{
+    fun getEmail(findElementWithoutCatching: Boolean = false) : String{
         return getText(
             locatorAndroid = Email.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Email.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN)
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Email.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
+        )
     }
 
-    fun clickClearSendEmail(email: String) {
+    fun clickClearSendEmail(email: String, findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = Email.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Email.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Email.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         clearField(
             locatorAndroid = Email.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Email.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Email.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         clickToElement(
             locatorAndroid = Email.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Email.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Email.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         sendText(
             locatorAndroid = Email.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Email.iosClassChain,
             locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
-            email
+            elementName = Email.elementName,
+            text = email,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun getInstagram() : String{
+    fun getInstagram(findElementWithoutCatching: Boolean = false) : String{
         return getText(
             locatorAndroid = Instagram.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Instagram.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN)
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Instagram.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
+        )
     }
-    fun clickClearSendInstagram(instagram: String) {
+    fun clickClearSendInstagram(instagram: String, findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = Instagram.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Instagram.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Instagram.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         clearField(
             locatorAndroid = Instagram.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Instagram.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Instagram.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         clickToElement(
             locatorAndroid = Instagram.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Instagram.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = Instagram.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         sendText(
             locatorAndroid = Instagram.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = Instagram.iosClassChain,
             locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
-            instagram
+            elementName = Instagram.elementName,
+            text = instagram,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickSaveData(){
+    fun clickSaveData(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = saveData.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = saveData.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = saveData.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickDeleteUser(){
+    fun clickDeleteUser(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = deleteUser.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = deleteUser.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = deleteUser.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun tapOnCenterExit(){
+    fun tapOnCenterExit(findElementWithoutCatching: Boolean = false){
         tapExitPage(
             locatorAndroid = saveData.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = saveData.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = saveData.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
-
-
-
 
 
     private val Name = ScreenConstructor(

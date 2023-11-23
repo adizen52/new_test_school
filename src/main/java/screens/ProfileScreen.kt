@@ -7,66 +7,80 @@ import TestFunctions.clickToElement
 
 class ProfileScreen {
 
-    fun clickMyOrders(){
+    fun clickMyOrders(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = myOrders.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = myOrders.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = myOrders.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickMyAddress(){
+    fun clickMyAddress(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = myAddresses.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = myAddresses.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = myAddresses.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickMyData(){
+    fun clickMyData(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = myData.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = myData.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = myData.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickPayMethod(){
+    fun clickPayMethod(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = payMethod.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = payMethod.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = payMethod.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickLogInCabinet(){
+    fun clickLogInCabinet(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = logInCabinet.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = logInCabinet.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = logInCabinet.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickLogOut(){
+    fun clickLogOut(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = logOut.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = logOut.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = logOut.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun checkLogOut() : Boolean{
+    fun checkLogOut(findElementWithoutCatching: Boolean = false) : Boolean{
         return checkAvaliableElemnt(
             locatorAndroid = logOut.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = logOut.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = logOut.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 

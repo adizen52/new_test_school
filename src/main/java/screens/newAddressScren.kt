@@ -3,109 +3,136 @@ package screens
 import TestFunctions.clickToElement
 import TestFunctions.sendText
 
+//ОКНО С ДОБАВЛЕНИЕМ НОВЫХ ДАННЫХ АДРЕСА
 class newAddressScren {
 
-    fun clickAndSendNewAddress(text : String) {
+    fun clickAndSendNewAddress(text : String, findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = newAddress.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = newAddress.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = newAddress.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         sendText(
             locatorAndroid = newAddress.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = newAddress.iosAccessibilityId,
             locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
-            text
+            elementName = newAddress.elementName,
+            text = text,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickAndSendFlat(text: String) {
+    fun clickAndSendFlat(text: String, findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = flat.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = flat.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = flat.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         sendText(
             locatorAndroid = flat.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = flat.iosAccessibilityId,
             locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
-            text)
+            elementName = flat.elementName,
+            text = text,
+            findElementWithoutCatching = findElementWithoutCatching)
     }
 
-    fun clickAndSendEntrance(text: String) {
+    fun clickAndSendEntrance(text: String, findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = entrance.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = entrance.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = entrance.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         sendText(
             locatorAndroid = entrance.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = entrance.iosAccessibilityId,
             locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
-            text
+            elementName = entrance.elementName,
+            text = text,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickAndSendIntercom(text: String) {
+    fun clickAndSendIntercom(text: String, findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = intercom.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = intercom.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = intercom.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         sendText(
             locatorAndroid = intercom.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = intercom.iosAccessibilityId,
             locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
-            text
+            elementName = intercom.elementName,
+            text = text,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickAndSendFloor(text: String) {
+    fun clickAndSendFloor(text: String, findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = floor.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = floor.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = floor.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         sendText(
             locatorAndroid = floor.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = floor.iosAccessibilityId,
             locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
-            text
+            elementName = floor.elementName,
+            text = text,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickAndSendCommentCourier(text: String) {
+    fun clickAndSendCommentCourier(text: String, findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = commentCourier.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = commentCourier.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = commentCourier.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
         sendText(
             locatorAndroid = commentCourier.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = commentCourier.iosAccessibilityId,
             locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
-            text
+            elementName = commentCourier.elementName,
+            text = text,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickSaveAddress() {
+    fun clickSaveAddress(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = saveAddress.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = saveAddress.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = saveAddress.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 

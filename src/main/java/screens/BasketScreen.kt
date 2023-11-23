@@ -1,127 +1,153 @@
 package screens
 
-import GlobalVariables.platformType
 import TestFunctions.clickToElement
 import TestFunctions.sendText
 import TestFunctions.tapOnCenterElement
 
+//ОКНО С МОЕЙ КОРЗИНОЙ
 class BasketScreen {
 
-    fun clickPickupLocation() {
+    fun clickPickupLocation(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = pickupLocation.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = pickupLocation.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = pickupLocation.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickTimeDelivery(){
+    fun clickTimeDelivery(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = timeDelivery.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = timeDelivery.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = timeDelivery.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickCommentOrder() {
+    fun clickCommentOrder(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = commentOrder.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = commentOrder.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = commentOrder.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickCommentDone() {
+    fun clickCommentDone(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = commentDone.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = commentDone.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = commentDone.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickAddingDevices() {
+    fun clickAddingDevices(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = addingDevices.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = addingDevices.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = addingDevices.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickReductionDevices() {
+    fun clickReductionDevices(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = reductionDevices.androidXPath,
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = reductionDevices.iosClassChain,
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = reductionDevices.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickPayMethod() {
+    fun clickPayMethod(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = payMethod.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = payMethod.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = payMethod.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickPromoCode() {
+    fun clickPromoCode(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = promoCode.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = promoCode.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = promoCode.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickOrderMeal() {
+    fun clickOrderMeal(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = orderMeal.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = orderMeal.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            orderMeal.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickAllRight() {
+    fun clickAllRight(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = allRight.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = allRight.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = allRight.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clickCprrectOrder() {
+    fun clickCprrectOrder(findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = correctOrder.androidAccessId,
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = correctOrder.iosAccessibilityId,
-            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = commentOrder.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun sendCommentInput(text : String) {
+    fun sendCommentInput(text : String, findElementWithoutCatching: Boolean = false) {
         sendText(
             locatorAndroid = commentInput.androidClassName,
             locatorTypeAndroid = LocatorType.CLASS_NAME,
             locatorIOS = commentInput.iosClassName,
             locatorTypeIOS = LocatorType.CLASS_NAME,
-            text
+            elementName = commentInput.elementName,
+            text = text,
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun tapOnCenterOrderMeal(){
+    fun tapOnCenterOrderMeal(findElementWithoutCatching: Boolean = false){
             tapOnCenterElement(
                 locatorAndroid = orderMeal.androidXPath,
                 locatorTypeAndroid = LocatorType.XPATH,
                 locatorIOS = orderMeal.iosAccessibilityId,
-                locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+                locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+                elementName = orderMeal.elementName,
+                findElementWithoutCatching = findElementWithoutCatching
             )
     }
 

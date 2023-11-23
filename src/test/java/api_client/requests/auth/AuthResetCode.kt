@@ -4,6 +4,7 @@ import Post
 import Res
 import api_client.enviroment.Environment.endPoints
 import api_client.pojo.auth.AuthResetCodePojo
+import io.qameta.allure.Step
 import io.restassured.response.Response
 
 object AuthResetCode : Post, Res, AuthResetCodePojo() {
@@ -18,6 +19,7 @@ object AuthResetCode : Post, Res, AuthResetCodePojo() {
         return AuthResetCodeReqBody(phone = phone)
     }
 
+    @Step("Отправка запроса POST для получени кода")
     override fun post(reqBody: Any) {
         val responseJSON = postReq(
             endPoint = endPoints.authResetCode,

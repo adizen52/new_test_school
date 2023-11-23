@@ -4,6 +4,7 @@ import MainActivity
 import TestFunctions.changeUserData
 import TestFunctions.checkUserData
 import general_cases_for_test.AutorizationScenaries
+import io.qameta.allure.Description
 import org.testng.annotations.Test
 import screens.MainSelector
 import screens.MyDataScreens
@@ -12,8 +13,8 @@ import java.util.concurrent.TimeUnit
 
 
 class TestUserData : MainActivity() {
-
-    @Test
+    @Description("Тесты по обработке личных данных/")
+    @Test(description = "Тест по изменению проверки данных и их проверки")
     fun test1() {
 
         val mainSelector = MainSelector()

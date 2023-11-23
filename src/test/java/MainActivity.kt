@@ -1,8 +1,8 @@
 import GlobalVariables.androidDriver
 import GlobalVariables.iosDriver
 import GlobalVariables.platformType
-import TestFunctions.BeforeSuitFun
 import general_cases_for_test.CreateCapabilities.createCapabilities
+import general_cases_for_test.beforeSuitFun.BeforeSuitFun
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.ios.IOSDriver
 import org.testng.annotations.AfterClass
@@ -13,7 +13,6 @@ import org.testng.annotations.BeforeMethod
 import org.testng.annotations.BeforeSuite
 import org.testng.annotations.Parameters
 import java.net.URL
-
 import java.time.Duration
 import java.util.concurrent.TimeUnit
 
@@ -45,13 +44,7 @@ open class MainActivity {
 
         platformType = paramPlatformName
 
-        try {
-            BeforeSuitFun()
-        } catch (e: org.openqa.selenium.NoSuchElementException)
-        {
-            println("Элементы не найдены.")
-        }
-
+        BeforeSuitFun()
     }
 
 

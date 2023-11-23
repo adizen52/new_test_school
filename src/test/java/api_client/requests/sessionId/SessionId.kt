@@ -3,7 +3,6 @@ package api_client.requests.sessionId
 import Get
 import Res
 import api_client.enviroment.Environment.endPoints
-import api_client.enviroment.Environment.enviroment
 import api_client.enviroment.Environment.headers
 import io.restassured.response.Response
 
