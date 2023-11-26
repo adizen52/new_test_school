@@ -4,6 +4,7 @@ object Environment {
 
     val testAddress = TestAddress()
     val phoneAndCode = PhoneAndCode()
+    val categoriesMealsEnv = CategoriesMeals()
     var enviroment = Evn()
     val endPoints = EndPoints()
     val headers: MutableMap<String, String> = mutableMapOf(
@@ -45,5 +46,18 @@ object Environment {
     data class PhoneAndCode(
         val phone : String = "79616669293",
         val code : String = "3256"
+    )
+
+    data class CategoriesMeals(
+        val hotDish : String = "Горячее",
+        val snacks : String = "Закуски",
+        val soups : String = "Супы",
+        val pasta : String = "Паста",
+        val sandwiches : String = "Сендвичи",
+        val pizza : String = "Пицца",
+        val desserts : String = "Десерты",
+        val salads : String = "Салаты",
+        val breakfast : String = "Завтраки",
+        val bread : String = "Хлеб"
     )
 }

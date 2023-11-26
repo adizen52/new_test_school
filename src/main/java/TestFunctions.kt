@@ -128,6 +128,31 @@ object TestFunctions {
         return element.isEnabled
     }
 
+    fun visibleElement(
+        locatorAndroid: String,
+        locatorTypeAndroid: LocatorType,
+        locatorIOS: String,
+        locatorTypeIOS: LocatorType,
+        elementName: String,
+        findElementWithoutCatching: Boolean = false
+    ): Boolean {
+        val element = changeLocator(
+            locatorAndroid,
+            locatorTypeAndroid,
+            locatorIOS,
+            locatorTypeIOS,
+            findElementWithoutCatching
+        )
+        var visible : Boolean
+        if (element.getAttribute("visible") == "true") {
+            println("TRUE")
+            visible = true
+        } else {
+            visible = false
+        }
+        return visible
+    }
+
     //получение текста из элемента
     @Step("Получение текста из элемента {elementName}")
     fun getText(

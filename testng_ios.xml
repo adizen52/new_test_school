@@ -9,7 +9,9 @@
     <parameter name="paramPathToApp" value="/Users/admin/apps/runner.app"/>
     <test verbose="2" preserve-order="true" name="IOS tests" parallel="none">
         <classes>
+            <class name="tests.TestOrder"/>
             <class name="tests.TestUserData"/>
+            <class name="tests.TestAddress"/>
         </classes>
     </test>
 </suite>

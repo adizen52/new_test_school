@@ -1,6 +1,8 @@
 package screens
 
+import TestFunctions.checkAvaliableElemnt
 import TestFunctions.clickToElement
+import TestFunctions.visibleElement
 
 //ОСНОВНОЕ ОКНО С МЕНЮ
 class MainScreen {
@@ -153,6 +155,44 @@ class MainScreen {
         priceMeal.iosAccessibilityId = elemntLocator
     }
 
+    fun completionTimingCategory(elemntLocator: String) {
+        timingCategory.androidAccessId = elemntLocator
+        timingCategory.iosAccessibilityId = elemntLocator
+    }
+
+    fun findTimingCategory(findElementWithoutCatching: Boolean = false) : Boolean{
+        return checkAvaliableElemnt(
+            locatorAndroid = timingCategory.androidAccessId,
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = timingCategory.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = timingCategory.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
+        )
+    }
+
+    fun visibleTimingCategory(findElementWithoutCatching: Boolean = false) : Boolean{
+        return visibleElement(
+            locatorAndroid = timingCategory.androidAccessId,
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = timingCategory.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = timingCategory.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
+        )
+    }
+
+    fun clickTimingCategory(findElementWithoutCatching: Boolean = false) {
+        clickToElement(
+            locatorAndroid = timingCategory.androidAccessId,
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = timingCategory.iosAccessibilityId,
+            locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
+            elementName = timingCategory.elementName,
+            findElementWithoutCatching = findElementWithoutCatching
+        )
+    }
+
     fun clickMealPrice(findElementWithoutCatching: Boolean = false){
         clickToElement(
             locatorAndroid = priceMeal.androidAccessId,
@@ -164,6 +204,7 @@ class MainScreen {
         )
     }
 
+
     private val selectBasket = ScreenConstructor(
         androidAccessId = "2\n" +
                 "Корзина\n" +
@@ -172,6 +213,12 @@ class MainScreen {
                 "Корзина\n" +
                 "461 ₽",
         elementName = "Корзина с двумя дабвленными блюдами"
+    )
+
+    private val timingCategory = ScreenConstructor(
+        androidAccessId = "",
+        iosAccessibilityId = "",
+        elementName = "Динамическая категория"
     )
 
     private val priceMeal = ScreenConstructor(
